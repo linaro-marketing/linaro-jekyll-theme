@@ -21,7 +21,7 @@
 !CHANGELOG.md
 !package.json
 !gulpfile.js
-#
+!mkdocs.yml
 # Now whitelist the desired folders
 !_includes
 !_data

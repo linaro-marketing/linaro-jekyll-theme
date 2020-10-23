@@ -1,0 +1,22 @@
+site_name: Linaro Jekyll Theme
+nav:
+  - "Getting Started": index.md
+  - Guides:
+      - "Adding Posts": AddingPosts.md
+      - "Adding Authors": AddingAuthors.md
+      - "Adding Pages": Addingpages.md
+  - Navbar: Navbar.md
+  - "Universal Navbar": UniversalNavbar.md
+  - Footer: Footer.md
+  - "Building the site": Building.md
+  - Includes: Includes.md
+  - Images: Images.md
+  - Fonts: Fonts.md
+  - Javascript: Javascript.md
+  - "CSS/SASS": CSS.md
+  - "Google Analytics & Cookies": Cookies.md 
+  - "Layouts":
+      - base: layouts/base.md
+      - flow: layouts/flow.md
+      - post: layouts/post.md
+theme: readthedocs
