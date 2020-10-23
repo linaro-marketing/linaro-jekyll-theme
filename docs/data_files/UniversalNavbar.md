@@ -1,0 +1,1 @@
+The `universal navbar` was a feature we added to the theme to provide a simple way for users to jump between are static websites. It's useful for companies that have multiple projects or departments that maintain their own website.

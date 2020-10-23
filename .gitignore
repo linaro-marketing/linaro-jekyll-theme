@@ -33,6 +33,7 @@
 !_pages
 !_posts
 !_authors
+!docs
 # Ignore the following files specifically
 assets/resized
 assets/images/test

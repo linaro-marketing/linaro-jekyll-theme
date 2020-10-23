@@ -1,0 +1,1 @@
+The base layout is inherited by all other layouts. This layout provides the top level structure of a HTML document. See the source [here](https://github.com/linaro-marketing/jumbo-jekyll-theme/blob/master/_layouts/base.html).
