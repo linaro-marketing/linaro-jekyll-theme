@@ -1,0 +1,14 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+    {% include components/head.html %}
+    <body>
+        <div id="wrapper" class="main">
+            {% include_cached nav/nav.html pageUrl=page.url %}
+            {{content}}
+            {% include footer/footer.html %}
+        </div>
+        {% include components/javascript.html %}
+    </body>
+</html>

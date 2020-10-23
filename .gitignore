@@ -1,0 +1,38 @@
+# This version of the .gitignore file ensures that only desired files and folders
+# get saved in the repo. This reduces problems caused by accidentally pushing after
+# working with a merged directory.
+#
+# Blacklist files/folders in same directory as the .gitignore file
+/*
+#
+# Whitelist the desired files
+!.gitignore
+!robots.txt
+!.htaccess
+!_config.yml
+!_config-staging.yml
+!_config-production.yml
+!Gemfile
+!index.md
+!LICENSE.txt
+!README.md
+!screenshot.png
+!*.gemspec
+!CHANGELOG.md
+!package.json
+!gulpfile.js
+#
+# Now whitelist the desired folders
+!_includes
+!_data
+!_layouts
+!_plugins
+!_sass
+!assets
+!admin
+!_pages
+!_posts
+!_authors
+# Ignore the following files specifically
+assets/resized
+assets/images/test
