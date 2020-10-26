@@ -1,0 +1,12 @@
+<div class="col col-12 content_image {% if include.object.style %}{{include.object.style}}{% endif %}">
+    {% if include.object.size %}
+    <div class="row">
+        {% assign offset = 12 | minus: include.object.size | divided_by: 2 %}
+        <div class="col col-12 col-sm-{{include.object.size}} offset-sm-{{offset}} content_image__innner_col">
+            {% picture content_image {{include.object.path}} --alt {{include.object.alt}} %}
+        </div>
+    </div>
+    {% else %}
+        {% picture content_image {{include.object.path}} --alt {{include.object.alt}} %}
+    {% endif %}
+</div>
