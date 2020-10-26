@@ -1,11 +1,11 @@
-title: jumbo-jekyll-theme (the advanced enterprise ready Jekyll theme)
+title: linaro-jekyll-theme (the advanced enterprise ready Jekyll theme)
 url: http://jumbojekyll.co.uk
 baseurl: ""
 description: |-
-  The jumbo-jekyll-theme is an advanced enterprise ready Jekyll theme used across the Linaro static websites.
+  The linaro-jekyll-theme is an advanced enterprise ready Jekyll theme used across the Linaro static websites.
 destination: _site
 permalink: /blog/:title/
-theme: jumbo-jekyll-theme
+theme: linaro-jekyll-theme
 highlighter: rouge
 markdown: kramdown
 kramdown:
@@ -23,8 +23,8 @@ exclude:
   - _static-site
   - .sass-cache
   - _site
-  - jumbo-jekyll-theme*.gem
-  - jumbo-jekyll-theme*.gemspec
+  - linaro-jekyll-theme*.gem
+  - linaro-jekyll-theme*.gemspec
 sass:
   style: compressed
   load_paths:
