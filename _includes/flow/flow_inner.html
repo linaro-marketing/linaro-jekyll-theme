@@ -13,6 +13,8 @@
         {% include flow/collapse.html object=section %}
     {% elsif section.format == "block" %}
         {% include flow/blocks.html object=section %}
+    {% elsif section.format == "image" %}
+        {% include flow/image.html object=section %}
     {% elsif section.format == "buttons" %}
         {% include flow/buttons.html object=section.buttons_content style=section.style  %}
     {% elsif section.format == "text" %}
