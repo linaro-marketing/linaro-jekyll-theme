@@ -4,10 +4,10 @@
         {% for slide in page.jumbotron.slider %}
         <div class="item d-flex align-items-center owl-slide {% if forloop.first %}active{% endif %}">
              {% if slide.image %}
-                {% assign image_path = slide.image %}
+                {% assign image_path = slide.image  %}
                 {% picture header_slider_image {{image_path}} %}
             {% endif %}
-            <div class="container {% if page.jumbotron.inner_class %}{{page.jumbotron.inner_class}}{% endif %}">
+            <div class="container {% if slide.inner_class %}{{slide.inner_class}}{% endif %}">
                 <div class="inner_content_wrapper">
                 {% if slide.inner-image %}
                     <img class="d-inline-block lazyload"
@@ -32,6 +32,9 @@
                         {% endfor %}
                     </p>
                 {% endif %}
+                {% if slide.custom_include %}
+                    {% include {{slide.custom_include}} %}
+                {% endif %}
                 </div>
             </div>
         </div>
@@ -42,7 +45,7 @@
 <div class="jumbotron d-flex align-items-center jumbotron-fluid {% if page.jumbotron.video %}video{% endif %}
 {% if page.jumbotron.image %}background_image{% endif%} {% if page.jumbotron.class %}{{page.jumbotron.class}}{% endif %}">
     {% if page.jumbotron.image %}
-        {% assign image_path = page.jumbotron.image %}
+        {% assign image_path = page.jumbotron.image  %}
         {% picture header_image {{image_path}} %}
     {% endif %}
     {% if page.jumbotron.video %}
