@@ -23,7 +23,6 @@
         {% assign title = site.title %}
     {% endif %}
 
-
     {% if page.image %}
         {% assign image = page.image | absolute_url %}
     {% else %}
@@ -57,32 +56,10 @@
         <meta name="keywords" content="{{page.keywords}}">
     {% endif %}
     {% include_cached components/schema.html %}
-    {% if page.url != "/" %}
+    {% if page.url != "/" and site.breadcrumb_schema %}
     <!--Breadcrumb Schema-->
-    <script type="application/ld+json">
-        {
-         "@context": "https://schema.org",
-         "@type": "BreadcrumbList",
-         "itemListElement":
-         [
-         {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-         {% assign breadcrumb_path = "/" %}
-         {% for crumb in crumbs offset: 1 %}
-            {% assign crumb_limit = forloop.index | plus: 1 %}
-            {% capture breadcrumb_path %}{{breadcrumb_path}}{{crumb}}/{% endcapture%}
-                {
-                "@type": "ListItem",
-                "position": {{forloop.index}},
-                "item":
-                    {
-                    "@id": "{{breadcrumb_path}}",
-                    "name": "{{breadcrumb_path}}"
-                    }
-                }{% unless forloop.last %},{% endunless %}
-         {% endfor %}
-         ]
-        }
-    </script>
+    {% capture breadcrumb_schema %}{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement":[{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}{% assign breadcrumb_path = "/" %}{% for crumb in crumbs offset: 1 %}{% assign crumb_limit = forloop.index | plus: 1 %}{% capture breadcrumb_path %}{{breadcrumb_path}}{{crumb}}/{% endcapture%}{"@type": "ListItem","position": {{forloop.index}},"item":{"@id": "{{breadcrumb_path | absolute_url}}","name": "{% assign page_data = site.pages | where: "url", breadcrumb_path | first %}{{page_data.title}}"}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endcapture %}
+    <script type="application/ld+json">{{breadcrumb_schema | strip_newlines | strip }}</script>
     {% endif %}
     {% if page.schema %}<script type="application/ld+json">{{page.schema | jsonify }}</script>{% endif %}
 </head>
