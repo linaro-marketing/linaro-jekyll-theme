@@ -63,7 +63,7 @@ include: ["_pages"]
 blog_images_dir: assets/images/content/
 # The default number of posts to display on a given post index page
 # used in the _includes/blog/display_latest_posts.html include
-post_limit: 9
+post_limit: 10
 # Email
 email: contact@linaro.org
 # Company Address
