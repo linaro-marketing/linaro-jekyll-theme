@@ -134,6 +134,8 @@ edit-on-github:
   enabled: true
   repo: https://www.github.com/linaro-marketing/jumbo-jekyll-theme
   # docs: https://www.github.com/Linaro/website
+# Page breadcrumb schema - https://schema.org/BreadcrumbList
+breadcrumb_schema: true
 # Shema.org settings used in the schema.html include.
 schema:
   "@type": "Corporation"
