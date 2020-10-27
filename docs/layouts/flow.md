@@ -249,6 +249,19 @@ sections:
               style: btn-primary # Optional - specifiy a class for your button. Defaults to btn-primary
 ```
 
+### image
+
+The image section allows you to add a single content image to your page using the jekyll_picture_tag plugin to output web optimized picture tags with webp image format support.
+
+```yaml
+sections:
+  - format: image
+    #style: #optional style for your image section
+    alt: Your Image alt tag # required - alt tag for your image.
+    size: 8 # optional - column size (centered) e.g a size of 8 will add your image to a col-sm-8 div with an offset of 2 to ensure it's centered.
+    path: /assets/images/breadcrumb-image.jpg #requried - the full path to your image.
+```
+
 ### buttons
 
 This section adds a bootstrap column with the buttons you provide. Great channeling users to another page (call to action etc).
