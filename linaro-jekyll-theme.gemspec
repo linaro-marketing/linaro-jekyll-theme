@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "linaro-jekyll-theme"
-  spec.version       = "4.0.0"
+  spec.version       = "4.0.1"
   spec.authors       = ["Kyle Kirkby"]
   spec.email         = ["kyle.kirkby@linaro.org"]
 
