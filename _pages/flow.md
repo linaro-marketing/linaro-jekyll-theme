@@ -8,6 +8,7 @@ keywords: flow, jekyll, automation, simple, bootstrap 3
 jumbotron:
   inner_class: dotted
   title: Get your flow on!
+  slider: []
   description: >
     The flow layout enables you to create custom pages using only Jekyll front matter.
   image: /assets/images/breadcrumb-image.jpg

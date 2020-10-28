@@ -55,9 +55,9 @@
                                 <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: "%A, %B %-d, %Y"}}</h6>
                                 <p class="card-text">
                                     {% if post.description %}
-                                        {{post.description}}
+                                        {{post.description | truncate: 184 }}
                                     {% else %}
-                                        {{ post.content | strip_html | truncatewords:30 }}
+                                        {{ post.content | strip_html | truncate: 184 }}
                                     {% endif %}
                                 </p>
                                 <p class="card-text">

@@ -1,4 +1,5 @@
-{% if page.jumbotron.slider %}
+{% assign num_of_slides = page.jumbotron.slider | size %}
+{% if page.jumbotron.slider and num_of_slides > 0 %}
 <div class="jumbotron jumbotron-fluid background_image slider {% if page.jumbotron.class %}{{page.jumbotron.class}}{% endif %}">
     <div id="jumbotron-slider" class="owl-carousel owl-theme full-width-slider">
         {% for slide in page.jumbotron.slider %}
