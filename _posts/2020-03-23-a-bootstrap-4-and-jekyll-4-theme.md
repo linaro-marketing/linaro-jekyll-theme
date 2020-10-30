@@ -10,6 +10,8 @@ tags:
   - jekyll
   - note
   - theme
+  - foo bar
+  - Foo Băr
   - jumbo-jekyll-theme
 ---
 
