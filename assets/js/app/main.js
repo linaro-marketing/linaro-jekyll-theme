@@ -26,6 +26,30 @@ $(document).ready(function () {
       });
     });
   }
+  // Tagged Posts
+  if($("#tagged_posts").length > 0){
+    var getUrlParameter =  (sParam) => {
+      var sPageURL = window.location.search.substring(1),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+  
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+  
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+          }
+      }
+    };
+    var tag = getUrlParameter('tag');
+    if(tag !== undefined){
+      console.log(tag);
+      $(".tag_list").addClass("d-none");
+      $(`.tag_list.${tag}`).addClass("d-block");
+      $(this).html(tag)
+    }
+  }
   if ($("#jumbotron-slider").length > 0) {
     $("#jumbotron-slider").owlCarousel({
       navigation: true,
