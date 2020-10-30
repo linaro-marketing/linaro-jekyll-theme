@@ -52,10 +52,10 @@
     {% if site.google_analytics.enabled %}
         <meta name="analytics_code" content="{{site.google_analytics.code}}">
     {% endif %}
-    {% if page.keywords %}
-        <meta name="keywords" content="{{page.keywords}}">
-    {% elsif page.tags %}
+    {% if page.tags %}
         <meta name="keywords" content="{{page.tags | join: ", "}}">
+    {% elsif page.keywords %}
+        <meta name="keywords" content="{{page.keywords}}">
     {% endif %}
     {% include_cached components/schema.html %}
     {% if page.url != "/" and site.breadcrumb_schema %}
