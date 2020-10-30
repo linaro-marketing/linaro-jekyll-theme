@@ -26,7 +26,6 @@
                 {% if include.object.category %}
                     {% if post.category == include.object.category %}
                         <li class="media" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-                            <a href="{{ post.url }}">
                                 {% assign author = site.authors | where: "username", post.author | first %}
                                 {% assign author-url = author.url %}
                                 {% assign author_name = author.name %}
@@ -41,19 +40,21 @@
                                         {% picture author_thumbnail {{author_image}} --alt {{author_image_alt}} %}
                                     </a>
                                 </div>
+                                
                                 <div class="media-body">
-                                <h5 class="mt-0 mb-1">{{post.title}}</h5>
-                                <div class="post_meta" >
-                                    Posted by <strong itemprop="name" rel="author">{{author_name}}</strong> on 
-                                    <time datetime="{{post.date}}" >{{post.date |  date: "%A, %B %-d, %Y"}}</time>
+                                    <a href="{{ post.url }}">
+                                    <h5 class="mt-0 mb-1">{{post.title}}</h5>
+                                    <div class="post_meta" >
+                                        Posted by <strong itemprop="name" rel="author">{{author_name}}</strong> on 
+                                        <time datetime="{{post.date}}" >{{post.date |  date: "%A, %B %-d, %Y"}}</time>
+                                    </div>
+                                    {% if post.description %}
+                                        {{post.description | truncate: 50 }}
+                                    {% else %}
+                                        {{ post.content | strip_html | truncate: 50 }}
+                                    {% endif %}
+                                    </a>
                                 </div>
-                                {% if post.description %}
-                                    {{post.description | truncate: 50 }}
-                                {% else %}
-                                    {{ post.content | strip_html | truncate: 50 }}
-                                {% endif %}
-                                </div>
-                            </a>
                         </li>
                     {% endif %}
                 {% else %}
