@@ -6,7 +6,7 @@ description: >-
 image: /assets/images/breadcrumb-image.jpg
 author: kyle
 category: blog
-keywords: jekyll, note, theme, jumbo-jekyll-theme
+tags: jekyll note theme jumbo-jekyll-theme
 ---
 
 # Introduction
@@ -25,7 +25,7 @@ Kernel developers shared their frustration regarding the MRAA dependent pin
 mapping as it is prone to go wrong when an external gpiochip like GPIO expander
 got probed before the SoC's internal gpiochip.
 
-To understand this scenario, let's consider the below MRAA GPIO pin mapping for
+To understand this scenario let's consider the below MRAA GPIO pin mapping for
 Dragonboard410c:
 
 ```c

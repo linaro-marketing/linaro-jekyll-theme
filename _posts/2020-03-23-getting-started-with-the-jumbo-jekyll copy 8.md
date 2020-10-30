@@ -5,8 +5,8 @@ description: >-
   This blog post will give you an overview of how to get started with the jumbo-jekyll-theme
 image: /assets/images/breadcrumb-image.jpg
 author: kyle
-category: blog
-keywords: jekyll, note, theme, jumbo-jekyll-theme
+category: news
+tags: jekyll theme jumbo-jekyll-theme
 ---
 
 # Introduction
