@@ -52,6 +52,7 @@ css_package: blog
                                 </div>
                             </div>
                         </div>
+                        {% if page.tags_enabled %}
                         <div class="col col-12">
                             <div class="post_tags text-center text-md-left my-2 my-sm-1">
                                 {% assign post_tags = page.tags | split: " " %}
@@ -62,6 +63,7 @@ css_package: blog
                                 {% endfor %}
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>                  
         </div>
