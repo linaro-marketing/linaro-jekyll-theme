@@ -56,7 +56,7 @@ css_package: blog
                             <div class="post_tags text-center text-md-left my-2 my-sm-1">
                                 {% assign post_tags = page.tags | split: " " %}
                                 {% for tag in page.tags %}
-                                    <a class="btn btn-secondary btn-sm my-1" href="/{{page.category}}/tags/?tag={{tag}}" data-toggle="tooltip" data-placement="top" title="View {{page.category}} post tagged {{tag}}">
+                                    <a class="btn bg-light text-dark btn-sm my-1" href="/{{page.category}}/tags/?tag={{tag}}" data-toggle="tooltip" data-placement="top" title="View {{page.category}} post tagged {{tag}}">
                                         {{tag}}
                                     </a>
                                 {% endfor %}
