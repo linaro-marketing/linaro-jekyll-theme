@@ -4,7 +4,7 @@ baseurl: ""
 description: |-
   The linaro-jekyll-theme is an advanced enterprise ready Jekyll theme used across the Linaro static websites.
 destination: _site
-permalink: /blog/:title/
+permalink: /:categories/:title/
 theme: linaro-jekyll-theme
 highlighter: rouge
 markdown: kramdown

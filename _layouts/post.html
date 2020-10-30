@@ -18,33 +18,52 @@ css_package: blog
     </div>
     <div class="row bg-light">
         <div class="container">
-            {% assign author = site.authors | where: "username", page.author | first %}
-            {% assign author-url = author.url %}
-            {% assign author_name = author.name %}
-            {% capture author_image_alt %}{{author_name}} image{% endcapture %}
-            {% if author.image %}
-                {% assign author_image = author.image %}
-            {% else %}
-                {% assign author_image = site.avatar_placeholder %}
-            {% endif %}
-            <div itemprop="author" itemscope="" itemtype="http://schema.org/Person" class="d-block d-md-inline-block mx-auto my-2 m-md-2 text-md-left text-center">
-                <a href="{{author-url}}" itemprop="url" rel="author">
-                    {% picture author_thumbnail {{author_image}} --alt {{author_image_alt}} %}
-                </a>
-            </div>
-            <div class="blockquote d-block d-md-inline-block mx-2 text-md-left text-center">
-                <strong itemprop="name">{{author_name}}</strong>
-            </div>
-            <span class="divider d-none d-md-inline-block">|</span>
-            <div class="post_info text-center text-md-left d-block d-md-inline-block">
-                <div class="author_name d-inline-block mx-2">
-                    <time datetime="{{page.date}}" itemprop="datePublished">{{page.date |  date: "%A, %B %-d, %Y"}}</time>
+            <div class="row" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                <div class="col col-12 col-sm-2">
+                    {% assign author = site.authors | where: "username", page.author | first %}
+                    {% assign author-url = author.url %}
+                    {% assign author_name = author.name %}
+                    {% capture author_image_alt %}{{author_name}} image{% endcapture %}
+                    {% if author.image %}
+                        {% assign author_image = author.image %}
+                    {% else %}
+                        {% assign author_image = site.avatar_placeholder %}
+                    {% endif %}
+                    <div class="d-block d-md-inline-block mx-auto my-2 m-md-2 text-md-left text-center">
+                        <a href="{{author-url}}" itemprop="url" rel="author">
+                            {% picture author_thumbnail {{author_image}} --alt {{author_image_alt}} %}
+                        </a>
+                    </div>
                 </div>
-                <span class="divider">|</span>
-                <div class="read_time d-inline-block mx-2">
-                    {% include blog/read_time.html %}
-                </div>
-            </div>
+                <div class="col col-12 col-sm-10 d-flex align-items-center">
+                    <div class="row">
+                        <div class="col col-12">
+                            <div class="blockquote d-block d-md-inline-block mx-2 text-md-left text-center">
+                                <strong itemprop="name" rel="author">{{author_name}}</strong>
+                            </div>
+                            <span class="divider d-none d-md-inline-block">|</span>
+                            <div class="post_info text-center text-md-left d-block d-md-inline-block">
+                                <div class="author_name d-inline-block mx-2">
+                                    <time datetime="{{page.date}}" itemprop="datePublished">{{page.date |  date: "%A, %B %-d, %Y"}}</time>
+                                </div>
+                                <span class="divider">|</span>
+                                <div class="read_time d-inline-block mx-2">
+                                    {% include blog/read_time.html %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-12">
+                            <div class="post_tags text-center text-md-left my-2 my-sm-1">
+                                {% assign post_tags = page.tags | split: " " %}
+                                {% for tag in page.tags %}
+                                    <a class="btn bg-light text-dark btn-sm my-1" href="/{{page.category}}/tags/?tag={{tag}}" data-toggle="tooltip" data-placement="top" title="View {{page.category}} post tagged {{tag}}">
+                                        {{tag}}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>                  
         </div>
     </div>
 </div>

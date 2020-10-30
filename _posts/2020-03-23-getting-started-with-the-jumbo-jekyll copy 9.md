@@ -6,7 +6,11 @@ description: >-
 image: /assets/images/breadcrumb-image.jpg
 author: john.smith
 category: blog
-keywords: jekyll, note, theme, jumbo-jekyll-theme
+tags:
+  - jekyll
+  - note
+  - theme
+  - jumbo-jekyll-theme
 ---
 
 # Introduction

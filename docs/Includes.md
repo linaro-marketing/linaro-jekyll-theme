@@ -36,6 +36,7 @@ Below is a table showing the available includes:
 | thumb                                     | Adds a responsive thumbnail image using the jekyll-repsonsive-image plugin.                                                                                                                                           |
 | thumbnail_image                           | Adds a responsive thumbnail image using the jekyll-repsonsive-image plugin.                                                                                                                                           |
 | universal-nav                             | Adds a universal navbar. We used this feature to link between our main static sites.                                                                                                                                  |
+| \_includes/blog/tags.html                 | Renders a tag cloud and related posts.                                                                                                                                                                                |
 | youtube                                   | Adds a lazy loaded youtube video.                                                                                                                                                                                     |
 | flow                                      | Contains the logic for include content specified in the flow frontmatter section of a page that uses the flow layout. Basically just contains a bunch of `if` statements that include the relevant `jekyll _includes` |
 
@@ -57,4 +58,41 @@ You can also use this include to display an array of posts from within your own 
 
 ```liquid
 {% include blog/display_latest_posts.html posts=my_posts_array %}
+```
+
+## \_includes/blog/tags.html
+
+This include is used to render a tag cloud and the related posts for each tag. You can specify a post category and only the tags for that category will render. Useful for sites that have a `News` and `Blog` section.
+
+An example of how to use this include with the flow layout.
+
+```yaml
+flow:
+  - row: container_row
+    sections:
+      - format: custom_include
+        source: blog/tags.html
+        category: blog
+```
+
+And an example page using this:
+
+```yaml
+---
+title: Tagged Blog Posts
+permalink: /blog/tags/
+description: >
+  Filter blog posts by tag.
+jumbotron:
+  title: Tagged Posts
+  description: >
+    Find tagged posts here.
+flow:
+  - row: container_row
+    sections:
+      - format: custom_include
+        source: blog/tags.html
+        category: blog
+---
+
 ```

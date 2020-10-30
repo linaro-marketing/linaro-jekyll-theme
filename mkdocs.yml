@@ -12,9 +12,10 @@ nav:
   - Includes: Includes.md
   - Images: Images.md
   - Fonts: Fonts.md
+  - SEO: SEO.md
   - Javascript: Javascript.md
   - "CSS/SASS": CSS.md
-  - "Google Analytics & Cookies": Cookies.md 
+  - "Google Analytics & Cookies": Cookies.md
   - "Layouts":
       - base: layouts/base.md
       - flow: layouts/flow.md

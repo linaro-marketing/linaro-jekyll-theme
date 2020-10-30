@@ -1,0 +1,67 @@
+<div class="col col-12 tags">
+    {% for tag in site.tags %}
+        {% for post in tag[1] %}
+            {% if include.object.category %}
+                {% if post.category == include.object.category %}
+                    <a class="btn btn-secondary" href="?tag={{tag[0]}}">
+                        {{tag[0]}}
+                    </a>
+                    {% break %}
+                {% endif %}
+            {% else %}
+                <a class="btn btn-secondary" href="?tag={{tag[0]}}">
+                    {{tag[0]}}
+                </a>
+                {% break %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
+<div class="col col-12 tagged_posts" id="tagged_posts">
+    {% for tag in site.tags %}
+    <div class="tag_list {{tag[0]}} d-none">   
+        <h3>{{ tag[0] }}</h3>
+        <ul class="list-unstyled">
+            {% for post in tag[1] %}
+                {% if include.object.category %}
+                    {% if post.category == include.object.category %}
+                        <li class="media" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                {% assign author = site.authors | where: "username", post.author | first %}
+                                {% assign author-url = author.url %}
+                                {% assign author_name = author.name %}
+                                {% capture author_image_alt %}{{author_name}} image{% endcapture %}
+                                {% if author.image %}
+                                    {% assign author_image = author.image %}
+                                {% else %}
+                                    {% assign author_image = site.avatar_placeholder %}
+                                {% endif %}
+                                <div class="d-block d-md-inline-block mx-auto my-2 m-md-2 text-md-left text-center">
+                                    <a href="{{author-url}}" itemprop="url" rel="author">
+                                        {% picture author_thumbnail {{author_image}} --alt {{author_image_alt}} %}
+                                    </a>
+                                </div>
+                                
+                                <div class="media-body">
+                                    <a href="{{ post.url }}">
+                                    <h5 class="mt-0 mb-1">{{post.title}}</h5>
+                                    <div class="post_meta" >
+                                        Posted by <strong itemprop="name" rel="author">{{author_name}}</strong> on 
+                                        <time datetime="{{post.date}}" >{{post.date |  date: "%A, %B %-d, %Y"}}</time>
+                                    </div>
+                                    {% if post.description %}
+                                        {{post.description | truncate: 50 }}
+                                    {% else %}
+                                        {{ post.content | strip_html | truncate: 50 }}
+                                    {% endif %}
+                                    </a>
+                                </div>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
