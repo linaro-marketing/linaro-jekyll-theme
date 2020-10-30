@@ -55,7 +55,7 @@ css_package: blog
                         {% if page.tags_enabled %}
                         <div class="col col-12">
                             <div class="post_tags text-center text-md-left my-2 my-sm-1">
-                                {% assign post_tags = page.tags | split: " " %}
+                                {% assign post_tags = page.tags | split: " " | sort | limit: page.tag_limit %}
                                 {% for tag in page.tags %}
                                     <a class="btn bg-light text-dark btn-sm my-1" href="/{{page.category | downcase }}/tags/?tag={{tag}}" data-toggle="tooltip" data-placement="top" title="View {{page.category}} post tagged {{tag}}">
                                         {{tag}}
