@@ -35,7 +35,14 @@
           width: 200px;
           display: block;
           float: left;
-          margin: 0px 20px;
+          margin: 10px 20px;
+        }
+      }
+      &.small-center {
+        @include media-breakpoint-up(md) {
+          width: 200px;
+          display: block;
+          margin: 20px auto;
         }
       }
       &.medium-inline {
@@ -43,7 +50,14 @@
           width: 300px;
           display: block;
           float: left;
-          margin: 0px 20px;
+          margin: 10px 20px;
+        }
+      }
+      &.medium-center {
+        @include media-breakpoint-up(md) {
+          width: 300px;
+          display: block;
+          margin: 20px auto;
         }
       }
       &.large-inline {
@@ -51,7 +65,14 @@
           width: 400px;
           display: block;
           float: left;
-          margin: 0px 20px;
+          margin: 10px 20px;
+        }
+      }
+      &.large-center {
+        @include media-breakpoint-up(md) {
+          width: 400px;
+          display: block;
+          margin: 20px auto;
         }
       }
       &.right {

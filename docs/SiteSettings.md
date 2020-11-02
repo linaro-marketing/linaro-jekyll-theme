@@ -30,3 +30,24 @@ If this value is set to `true`, BreadcrumbList json schema will be added to the 
 ```yaml
 breadcrumb_schema: true
 ```
+
+## Tags
+
+Tags can be enabled for posts by providing a default in the `_config.yml`. E.g:
+
+```yaml
+defaults:
+  - scope:
+      path: "_posts/blog"
+    values:
+      # Enable tags
+      tags_enabled: true
+```
+
+Adding a default like the above will ensure that the tags are added to the display_latest_posts.html include (post index page) and the post layout.
+
+You can also change the default number of tags to show in post index cards and the post layout with this setting in `_config.yml`:
+
+```yaml
+tag_limit: 10
+```

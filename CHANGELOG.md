@@ -1,3 +1,7 @@
+## 4.1.2
+
+- Added ability to toggle post tags output and limit the number of tags visible.
+
 ## 4.1.1
 
 - Tags bug fix for spaced/accented tags

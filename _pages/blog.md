@@ -3,6 +3,7 @@ title: Blog
 permalink: /blog/
 description: >
   Welcome to the example blog.
+tags_enabled: true
 flow:
   - row: container_row
     sections:
