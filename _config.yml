@@ -51,8 +51,7 @@ defaults:
       layout: post
       is_post: true
       comments: true
-      tags_enabled: true
-      tag_limit: 10
+      tags_enabled: false
       strap_image: /assets/images/breadcrumb-image.jpg
   - scope:
       path: ""
@@ -63,6 +62,8 @@ include: ["_pages"]
 # ----------- THEME / WEBSITE CONFIG ---------------------
 # Blog images/thumbs dir
 blog_images_dir: assets/images/content/
+# Blog Tag limit
+tag_limit: 10
 # The default number of posts to display on a given post index page
 # used in the _includes/blog/display_latest_posts.html include
 post_limit: 10
