@@ -54,8 +54,8 @@
                                 <h5 class="card-title">{{post.title}}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ post.date | date: "%A, %B %-d, %Y"}}</h6>
                                 {% if page.tags_enabled %}
-                                    {% assign post_tags = post.tags | split: " " | sort | limit: page.tag_limit  %}
-                                    {% for tag in post.tags %}
+                                    {% assign post_tags = post.tags | sort %}
+                                    {% for tag in post_tags limit: site.tag_limit %}
                                         <a class="btn bg-light text-dark btn-sm my-1" href="/{{post.category | downcase}}/tags/?tag={{tag}}">
                                             {{tag}}
                                         </a>
@@ -117,9 +117,9 @@
                             {% endif %}
                         </p>
                         {% if page.tags_enabled %}
-                            {% assign post_tags = post.tags | split: " " | sort | limit: page.tag_limit %}
+                            {% assign post_tags = post.tags | sort %}
                             <div class="d-block mt-auto">
-                                {% for tag in post.tags %}
+                                {% for tag in post_tags limit: site.tag_limit  %}
                                     <a class="btn bg-light text-dark btn-sm my-1" href="/{{post.category | downcase}}/tags/?tag={{tag}}">
                                         {{tag}}
                                     </a>

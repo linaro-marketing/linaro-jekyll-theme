@@ -1,21 +1,25 @@
 <div class="col col-12 tags">
-    {% for tag in site.tags %}
+    <div id="tag_cloud" class="d-none">
+    {% assign site_tags = site.tags | sort %}
+    {% for tag in site_tags %}
         {% for post in tag[1] %}
             {% if include.object.category %}
                 {% if post.category == include.object.category %}
-                    <a class="btn btn-secondary" href="?tag={{tag[0]}}">
+                    <a class="btn btn-secondary my-2" href="?tag={{tag[0]}}">
                         {{tag[0]}}
                     </a>
                     {% break %}
                 {% endif %}
             {% else %}
-                <a class="btn btn-secondary" href="?tag={{tag[0]}}">
+                <a class="btn btn-secondary my-2" href="?tag={{tag[0]}}">
                     {{tag[0]}}
                 </a>
                 {% break %}
             {% endif %}
         {% endfor %}
     {% endfor %}
+    </div>
+    <a type="button" class="btn btn-secondary d-none" id="view_all_tags_btn">View all tags</a>
 </div>
 <div class="col col-12 tagged_posts" id="tagged_posts">
     {% for tag in site.tags %}
