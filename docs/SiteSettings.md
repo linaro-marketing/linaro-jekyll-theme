@@ -42,8 +42,12 @@ defaults:
     values:
       # Enable tags
       tags_enabled: true
-      # Required if enabled. Limits the number of tags to display.
-      tag_limit: 10
 ```
 
 Adding a default like the above will ensure that the tags are added to the display_latest_posts.html include (post index page) and the post layout.
+
+You can also change the default number of tags to show in post index cards and the post layout with this setting in `_config.yml`:
+
+```yaml
+tag_limit: 10
+```
