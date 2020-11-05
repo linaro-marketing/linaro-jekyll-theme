@@ -51,7 +51,7 @@ defaults:
       layout: post
       is_post: true
       comments: true
-      tags_enabled: false
+      tags_enabled: true
       strap_image: /assets/images/breadcrumb-image.jpg
   - scope:
       path: ""
