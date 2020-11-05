@@ -1,3 +1,9 @@
+## 4.1.3
+
+- Removed limit on tags from the post.html layout. All tags now display (if enabled) on the post itself.
+- Updated footer brand to better support custom URLs/alt text
+- Updated docs
+
 ## 4.1.2
 
 - Added ability to toggle post tags output and limit the number of tags visible.
