@@ -56,7 +56,7 @@ css_package: blog
                         <div class="col col-12">
                             <div class="post_tags text-center text-md-left my-2 my-sm-1">
                                 {% assign post_tags = page.tags | sort %}
-                                {% for tag in post_tags limit: site.tag_limit %}
+                                {% for tag in post_tags %}
                                     <a class="btn bg-light text-dark btn-sm my-1" href="/{{page.category | downcase }}/tags/?tag={{tag}}">
                                         {{tag}}
                                     </a>

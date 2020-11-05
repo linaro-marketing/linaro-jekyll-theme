@@ -1,1 +1,0 @@
-This page will walk you through how to get started with the _jumbo-jekyll-theme_.

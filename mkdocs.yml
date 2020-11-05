@@ -1,6 +1,7 @@
 site_name: Linaro Jekyll Theme
 nav:
   - "Getting Started": index.md
+  - Footer: Footer.md
   - Guides:
       - "Adding Posts": AddingPosts.md
       - "Adding Authors": AddingAuthors.md

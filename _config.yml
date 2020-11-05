@@ -51,7 +51,7 @@ defaults:
       layout: post
       is_post: true
       comments: true
-      tags_enabled: false
+      tags_enabled: true
       strap_image: /assets/images/breadcrumb-image.jpg
   - scope:
       path: ""
@@ -136,7 +136,7 @@ disqus:
 # Edit on GitHub Settings
 edit-on-github:
   enabled: true
-  repo: https://www.github.com/linaro-marketing/jumbo-jekyll-theme
+  repo: https://www.github.com/linaro-marketing/linaro-jekyll-theme
   # docs: https://www.github.com/Linaro/website
 # Page breadcrumb schema - https://schema.org/BreadcrumbList
 breadcrumb_schema: true
