@@ -54,7 +54,7 @@
     {% if page.tags %}
         <meta name="keywords" content="{{page.tags | join: ", "}}">
     {% elsif page.keywords %}
-        <meta name="keywords" content="{{page.keywords}}">
+        <meta name="keywords" content="{{page.keywords | join: ", "}}">
     {% endif %}
     {% include_cached components/schema.html %}
     {% if page.url != "/" and site.breadcrumb_schema %}
