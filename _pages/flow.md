@@ -4,7 +4,12 @@ layout: flow
 permalink: /flow/
 descrtion: >
   This page showcases the power of the flow.html Jekyll include provided in this theme.
-keywords: flow, jekyll, automation, simple, bootstrap 3
+keywords:
+  - flow
+  - jekyll
+  - automation
+  - simple
+  - bootstrap 3
 jumbotron:
   inner_class: dotted
   title: Get your flow on!
