@@ -4,7 +4,7 @@
 <html lang="en">
     {% include components/head.html %}
     <body>
-        <div id="wrapper" class="main">
+        <div id="wrapper" class="main" itemscope="" itemtype="http://schema.org/WebPage">
             {% include_cached nav/nav.html pageUrl=page.url %}
             {{content}}
             {% include footer/footer.html %}
