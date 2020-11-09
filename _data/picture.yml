@@ -73,6 +73,12 @@ markup_presets:
       img: 'class="lazyload img-fluid blog_content_image "'
     formats: [webp, original]
     widths: [400, 800, 1200]
+  members_image:
+    markup: data_picture
+    attributes:
+      img: 'class="lazyload img-fluid members_image "'
+    formats: [webp, original]
+    widths: [100, 200, 300, 400]
   header_image:
     markup: data_auto
     attributes:

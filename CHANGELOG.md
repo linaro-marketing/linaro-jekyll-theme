@@ -1,3 +1,16 @@
+## 4.1.4
+
+- Fixed issues with breadcrumb rich snippets (schema.org)
+- Added WebPage as the base schema type
+- Fixed issues with blocks flow include
+- Fixed issues with the members.html flow include
+
+## 4.1.3
+
+- Removed limit on tags from the post.html layout. All tags now display (if enabled) on the post itself.
+- Updated footer brand to better support custom URLs/alt text
+- Updated docs
+
 ## 4.1.2
 
 - Added ability to toggle post tags output and limit the number of tags visible.

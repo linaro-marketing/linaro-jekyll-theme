@@ -54,12 +54,12 @@
     {% if page.tags %}
         <meta name="keywords" content="{{page.tags | join: ", "}}">
     {% elsif page.keywords %}
-        <meta name="keywords" content="{{page.keywords}}">
+        <meta name="keywords" content="{{page.keywords | join: ", "}}">
     {% endif %}
     {% include_cached components/schema.html %}
     {% if page.url != "/" and site.breadcrumb_schema %}
     <!--Breadcrumb Schema-->
-    {% capture breadcrumb_schema %}{"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement":[{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}{% assign breadcrumb_path = "/" %}{% for crumb in crumbs offset: 1 %}{% assign crumb_limit = forloop.index | plus: 1 %}{% capture breadcrumb_path %}{{breadcrumb_path}}{{crumb}}/{% endcapture%}{"@type": "ListItem","position": {{forloop.index}},"item":{"@id": "{{breadcrumb_path | absolute_url}}","name": "{% assign page_data = site.pages | where: "url", breadcrumb_path | first %}{{page_data.title}}"}}{% unless forloop.last %},{% endunless %}{% endfor %}]}{% endcapture %}
+    {% capture breadcrumb_schema %}{"@context": "http://schema.org","@type": "Webpage", "breadcrumb": {"@context": "https://schema.org","@type": "BreadcrumbList","itemListElement":[{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}{% assign breadcrumb_path = "/" %}{% for crumb in crumbs offset: 1 %}{% assign crumb_limit = forloop.index | plus: 1 %}{% capture breadcrumb_path %}{{breadcrumb_path}}{{crumb}}/{% endcapture%}{"@type": "ListItem","position": {{forloop.index}},"item":{"@id": "{{breadcrumb_path | absolute_url}}","name": "{% assign page_data = site.pages | where: "url", breadcrumb_path | first %}{% if page_data.title %}{{page_data.title}}{% else %}{{breadcrumb_path}}{% endif %}"}}{% unless forloop.last %},{% endunless %}{% endfor %}]}}{% endcapture %}
     <script type="application/ld+json">{{breadcrumb_schema | strip_newlines | strip }}</script>
     {% endif %}
     {% if page.schema %}<script type="application/ld+json">{{page.schema | jsonify }}</script>{% endif %}

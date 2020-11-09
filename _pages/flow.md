@@ -4,7 +4,12 @@ layout: flow
 permalink: /flow/
 descrtion: >
   This page showcases the power of the flow.html Jekyll include provided in this theme.
-keywords: flow, jekyll, automation, simple, bootstrap 3
+keywords:
+  - flow
+  - jekyll
+  - automation
+  - simple
+  - bootstrap 3
 jumbotron:
   inner_class: dotted
   title: Get your flow on!
@@ -107,6 +112,36 @@ flow:
               - Bullet 1
               - Bullet 2
               - Bullet 3
+      - format: title
+        style: text-center
+        title_content:
+          size: h2
+          text: Members Section
+      - format: members
+        style: zoom grayscale bg-dark
+        members_content:
+          item_width: "4"
+          items:
+            - name: Linaro
+              image:
+                path: /assets/images/Linaro-logo-white.png
+                alt: Linaro Logo
+              url: https://www.linaro.org/
+            - name: Linaro
+              image:
+                path: /assets/images/Linaro-logo-white.png
+                alt: Linaro Logo
+              url: https://www.linaro.org/
+            - name: Linaro
+              image:
+                path: /assets/images/Linaro-logo-white.png
+                alt: Linaro Logo
+              url: https://www.linaro.org/
+            - name: Linaro
+              image:
+                path: /assets/images/Linaro-logo-white.png
+                alt: Linaro Logo
+              url: https://www.linaro.org/
   - row: container_row
     style: block_row
     #   background_image: /assets/images/breadcrumb-image.jpg

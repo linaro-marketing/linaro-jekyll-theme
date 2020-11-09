@@ -2,13 +2,22 @@
 layout: base
 css_package: blog
 ---
-<div itemscope="" itemtype="http://schema.org/BlogPosting">
+<div itemscope="" itemtype="http://schema.org/BlogPosting" >
+    <meta itemprop="mainEntityOfPage" content="{{page.url | absolute_url}}"/>
+    <div itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{{site.schema.name}}" />
+        <meta itemprop="url" content="{{site.schema.url}}" />
+        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+            <meta itemprop="url" content="{{site.schema.logo}}">
+          </div>
+    </div>
 <div class="container-fluid" >
     {% if page.strap_image %}
     <div class="row" id="image_header">
         {% assign image_path = page.strap_image %}
         {% capture image_alt %}{{page.title}} background image{% endcapture %}
         {% picture header_image {{image_path}} --alt {{image_alt}} %}
+        <meta itemprop="image" content="{{image_path | absolute_url}}" />
     </div>
     {% endif %}
     <div class="row">
@@ -18,7 +27,7 @@ css_package: blog
     </div>
     <div class="row bg-light">
         <div class="container">
-            <div class="row" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            <div class="row">
                 <div class="col col-12 col-sm-2">
                     {% assign author = site.authors | where: "username", page.author | first %}
                     {% assign author-url = author.url %}
@@ -29,8 +38,9 @@ css_package: blog
                     {% else %}
                         {% assign author_image = site.avatar_placeholder %}
                     {% endif %}
-                    <div class="d-block d-md-inline-block mx-auto my-2 m-md-2 text-md-left text-center">
-                        <a href="{{author-url}}" itemprop="url" rel="author">
+                    <div class="d-block d-md-inline-block mx-auto my-2 m-md-2 text-md-left text-center" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                        <meta itemprop="name" content="{{author_name}}" />
+                        <a href="{{author-url}}" itemprop="url" content="{{author-url | absolute_url}}">
                             {% picture author_thumbnail {{author_image}} --alt {{author_image_alt}} %}
                         </a>
                     </div>
@@ -39,12 +49,12 @@ css_package: blog
                     <div class="row">
                         <div class="col col-12">
                             <div class="blockquote d-block d-md-inline-block mx-2 text-md-left text-center">
-                                <strong itemprop="name" rel="author">{{author_name}}</strong>
+                                <strong>{{author_name}}</strong>
                             </div>
                             <span class="divider d-none d-md-inline-block">|</span>
                             <div class="post_info text-center text-md-left d-block d-md-inline-block">
-                                <div class="author_name d-inline-block mx-2">
-                                    <time datetime="{{page.date}}" itemprop="datePublished">{{page.date |  date: "%A, %B %-d, %Y"}}</time>
+                                <div class="d-inline-block mx-2">
+                                    <time datetime="{{page.date}}" itemprop="datePublished dateModified" rel="BlogPosting">{{page.date |  date: "%A, %B %-d, %Y"}}</time>
                                 </div>
                                 <span class="divider">|</span>
                                 <div class="read_time d-inline-block mx-2">
