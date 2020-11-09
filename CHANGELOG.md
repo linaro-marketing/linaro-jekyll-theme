@@ -1,3 +1,10 @@
+## 4.1.4
+
+- Fixed issues with breadcrumb rich snippets (schema.org)
+- Added WebPage as the base schema type
+- Fixed issues with blocks flow include
+- Fixed issues with the members.html flow include
+
 ## 4.1.3
 
 - Removed limit on tags from the post.html layout. All tags now display (if enabled) on the post itself.
