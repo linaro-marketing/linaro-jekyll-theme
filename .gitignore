@@ -22,6 +22,7 @@
 !package.json
 !gulpfile.js
 !mkdocs.yml
+!requirements.txt
 # Now whitelist the desired folders
 !_includes
 !_data
