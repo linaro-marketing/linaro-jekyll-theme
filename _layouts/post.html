@@ -19,6 +19,9 @@ css_package: blog
         {% picture header_image {{image_path}} --alt {{image_alt}} %}
         <meta itemprop="image" content="{{image_path | absolute_url}}" />
     </div>
+    {% else %}
+        {% assign image_path = page.image %}
+        <meta itemprop="image" content="{{image_path | absolute_url}}" />
     {% endif %}
     <div class="row">
         <div class="container">

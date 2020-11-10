@@ -7,6 +7,7 @@ image: /assets/images/breadcrumb-image.jpg
 author: kyle
 category: blog
 tags: jekyll note theme jumbo-jekyll-theme
+strap_image: false
 ---
 
 # Introduction

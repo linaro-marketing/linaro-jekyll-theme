@@ -15,6 +15,6 @@ flow:
         # category: News
       - format: custom_include
         source: blog/display_latest_posts.html
-        limit: 4
+        limit: 20
         category: blog
 ---
