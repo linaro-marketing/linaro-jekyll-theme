@@ -1,3 +1,7 @@
+## 4.1.5
+
+- Include the meta tag for a posts image if strap_image is not used.
+
 ## 4.1.4
 
 - Fixed issues with breadcrumb rich snippets (schema.org)
