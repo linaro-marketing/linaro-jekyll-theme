@@ -3,8 +3,9 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
-## Unreleased
 
+
+## Unreleased
 ---
 
 ### New
@@ -14,6 +15,16 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Fixes
 
 ### Breaks
+
+
+## 4.1.6 - (2020-11-16)
+---
+
+### Changes
+* Adds custom_include support for feature blocks.
+
+
+---
 
 ## 4.1.5 - (2020-11-10)
 
