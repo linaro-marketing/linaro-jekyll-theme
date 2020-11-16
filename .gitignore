@@ -22,6 +22,7 @@
 !package.json
 !gulpfile.js
 !mkdocs.yml
+!requirements.txt
 # Now whitelist the desired folders
 !_includes
 !_data
@@ -37,3 +38,4 @@
 # Ignore the following files specifically
 assets/resized
 assets/images/test
+_includes/test

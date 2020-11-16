@@ -364,6 +364,7 @@ flow:
             url: https://www.youtube.com/watch?v=QH2-TGUlwu4
             poster_image: /assets/images/breadcrumb-image.jpg
           title: Feature Block
+          custom_include: test/feature_block.html
           text: >
             A feature block with a youtube video.
           buttons:
@@ -379,9 +380,10 @@ flow:
           position: "right"
           type: "image"
           image_content_path: /assets/images/breadcrumb-image.jpg
-          title: Feature Block
+          title: Feature Block 2
           text: >
             A feature block with an image.
+          custom_include: test/feature_block.html
           buttons:
             - title: Button 1
               url: /about/
