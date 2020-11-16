@@ -36,6 +36,9 @@
             {% if include.object.feature_block_content.buttons %}
                 {% include flow/buttons.html object=include.object.feature_block_content.buttons %}
             {% endif %}
+            {% if include.object.feature_block_content.custom_include %}
+                {% include {{include.object.feature_block_content.custom_include}} object=include.object %}
+            {% endif %}
         </div>
     </div>
 </div>
