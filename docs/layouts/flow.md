@@ -364,6 +364,8 @@ sections:
       # Optional - specify an image to be used as featured content
       # type: "image"
       # image_content_path: /assets/images/content/background-image1.jpg
+      # Add a custom Jekyll include to the end of your feature block's content.
+      custom_include: test/test_feature_block.html 
       # Optional - add an images slider to be used as featured content
       type: "slider"
       # Slider content - see the slider section details for more information on adding slider's
