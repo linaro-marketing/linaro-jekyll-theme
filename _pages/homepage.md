@@ -3,7 +3,7 @@ layout: flow
 title: Jumbo-jekyll-theme
 description: >-
   The jumbo-jekyll-theme is a feature packed Boostrap v3 Jekyll theme for building static websites.
-sticky-tab-bar:
+sticky_tab_bar:
   - title: Home
     url: /
     active: true
@@ -13,61 +13,6 @@ hide_last_modified: false
 permalink: /
 flow:
   - row: main_content_row
-  - row: container_row
-    #style: new
-    sections:
-      - format: feature_block
-        #   style: text-center text-white
-        feature_block_content:
-          position: "left"
-          type: "slider"
-          slider_content:
-            lightbox_enabled: true
-            seconds_per_slide: 2
-            nav: true
-            dots: false
-            xs_items: 1
-            sm_items: 1
-            md_items: 1
-            lg_items: 1
-            items:
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-              - image: /assets/images/breadcrumb-image.jpg
-                alt: Background Image
-                title: Background Image 1
-          title: Lightweight & fully optimised
-          text: >
-            The jumbo-jekyll-theme was built to work in an enterpise environment with a focus on speed.
-          buttons:
-            - title: Get Started
-              url: https://github.com/linaro-marketing/jumbo-jekyll-theme/wiki
-              style: btn-primary
-            - title: View Theme Wiki
-              url: https://github.com/linaro-marketing/jumbo-jekyll-theme/wiki
-              style: btn-primary
 jumbotron:
   class: home
   inner_class: example_class
