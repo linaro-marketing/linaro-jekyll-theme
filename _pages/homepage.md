@@ -10,6 +10,7 @@ sticky_tab_bar:
   - title: Get Started
     url: /get-started/
 hide_last_modified: false
+sticky_tab_bar: true
 permalink: /
 flow:
   - row: main_content_row
