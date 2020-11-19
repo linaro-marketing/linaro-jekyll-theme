@@ -486,3 +486,40 @@ sections:
           - Bullet 2
           - Bullet 3
 ```
+## Sticky Tab Bar
+
+The sticky tab bar allows you to add sub navigation to a page. This was originally design for the 96Boards.org site which needed additional links on a per page basis.
+
+To add the sticky tab bar to a page simply set this front matter in a flow layout based page.
+
+```yaml
+sticky_tab_bar_enabled: true
+```
+In order to define the tabs for a given page or section of your websites, add to either the page front matter directly or to a `_data/sticky_tab_bar.yml` Jekyll data file.
+
+
+To you page front matter directly:
+
+```yaml
+sticky_tab_bar:
+  - title: Home
+    url: /
+    #active: false toggle the active class 
+  - title: Get Started
+    url: /get-started/
+```
+
+or with the `_data/sticky_tab_bar.yml` data file:
+
+```yaml
+pages:
+  - list:
+      - title: Blog
+        url: /blog/
+        sub-pages: true
+      - title: Flow Layout
+        url: /flow/
+        right: true
+    urls: [/, /flow/]
+
+```
