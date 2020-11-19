@@ -1,4 +1,4 @@
-{% if page.sticky_tab_bar %}
+{% if page.sticky_tab_bar.first %}
     {% assign tab-list = page.sticky_tab_bar %}
 {% else %}
     {% assign sub-nav-tabs = site.data.sticky_tab_bar.pages %}
@@ -24,31 +24,42 @@
 {% endif %}
 {% if tab-list %}
 <div class="tabbed-area non-sticky-nav" id="tabbed-nav-bar"><!-- Nav tabs Wrapper-->
-    <nav class="navbar-default" role="navigation"><!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation"><!-- Nav -->
         <div class="container">
-            <div class="navbar-header"><!-- Navbar Header -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tabbed-nav-bar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar top-bar"></span>
-                    <span class="icon-bar middle-bar"></span>
-                    <span class="icon-bar bottom-bar"></span>
-                </button><!-- Navbar Icon Bar Toggle -->
-                <a class="navbar-brand" id="sub-navigation-header" href=""></a><!-- Navbar Brand -->
-            </div>
+            <a class="navbar-brand d-block d-lg-none" id="sub-navigation-header" href="#"></a><!-- Navbar Brand -->
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#tabbed-nav-bar-collapse"
+             aria-controls="tabbed-nav-bar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="sr-only">Toggle navigation</span>
+            </button>
             <div class="collapse navbar-collapse" id="tabbed-nav-bar-collapse"><!-- Navbar Collapse -->
-                <ul class="nav nav-tabs tabbed-nav" id="tab-row" role="tablist">
+                <ul class="nav nav-pills flex-column flex-lg-row tabbed-nav" id="tab-row" role="tablist">
                     {% for tab in tab-list %}
-                        <li role="presentation" {% if page.url == tab.url %}
-                                                    class="active tabbed-nav-btn {% if tab.right %}pull-right{% endif %}"
-                                                {% elsif tab.sub-pages and page.url contains tab.url %}
-                                                    class="active tabbed-nav-btn {% if tab.right %}pull-right{% endif %}"
-                                                {% elsif tab.active %}
-                                                    class="active tabbed-nav-btn {% if tab.right %}pull-right{% endif %}"
-                                                {% else %}
-                                                    class="tabbed-nav-btn {% if tab.right %}pull-right{% endif %}"
-                                                {% endif %}>
-                                    <a href="{{tab.url}}" aria-controls="overview" role="link">{{tab.title}}</a></li>
+                        {% if tab.options %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    {{tab.title}}
+                                </a>
+                                <div class="dropdown-menu">
+                                    {% for option in tab.options %}
+                                        <a class="dropdown-item" href="{{option.url}}">{{option.title}}</a>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        {% else %}
+                            <li role="presentation" 
+                            class=" nav-item tabbed-nav-btn {% if tab.right %}pull-right{% endif %}">
+                                <a href="{{tab.url}}" 
+                                class="nav-link {% if page.url == tab.url or tab.sub-pages and page.url contains tab.url or tab.active %}active{% endif %}"
+                                aria-controls="overview" role="link">
+                                    {{tab.title}}
+                                </a>
+                            </li>
+                        {% endif %}
                     {% endfor %}
+                    
                 </ul>
             </div>
         </div>
