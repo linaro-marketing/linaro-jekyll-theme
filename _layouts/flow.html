@@ -7,6 +7,9 @@ layout: base
     {% include components/breadcrumb.html %}
 {% endif %}
 <div class="container-fluid main_content" id="flow_wrapper">
+    {% if page.sticky_tab_bar %}
+        {% include components/sticky_tab_bar.html object=page %}
+    {% endif %}
     {% if page.flow %}
         {% for each in page.flow %}
             {% if each.row == "main_content_row" %}
