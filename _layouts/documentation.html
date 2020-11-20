@@ -1,0 +1,17 @@
+---
+layout: base
+---
+{% include components/breadcrumb.html %}
+{% if page.sticky_tab_bar %} 
+    {% include components/sticky_tab_bar.html object=page %}
+{% endif %}
+<div class="container-fluid main_content" id="content_wrapper">
+  <div class="row" id="doc_content">
+    <div class="container">
+        <div class="row">
+            <div class="col col-12 col-lg-3" id="table-of-contents">{{ content | toc_only }}</div>
+            <div class="col col-12 col-lg-9"id="markdown-content">{{ content | inject_anchors }}</div>
+        </div>
+    </div>
+  </div>
+</div>
