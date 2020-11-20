@@ -64,6 +64,11 @@
         min-width: 300px;
         left: auto;
       }
+      button.btn.btn-outline-primary.border-0 {
+        display: block;
+        width: 100%;
+        border-radius: 0px;
+      }
     }
   }
   // Multi-level dropdowns
