@@ -33,6 +33,7 @@ plugins:
   - japr
   - jekyll_picture_tag
   - jekyll-tidy
+  - jekyll-toc
 collections:
   authors:
     output: true
@@ -188,3 +189,13 @@ asset_pipeline:
   compress: true
   output_path: assets/js
   gzip: false
+# jekyll-toc
+toc:
+  min_level: 1
+  max_level: 6
+  ordered_list: false
+  no_toc_section_class: no_toc_section
+  list_class: list-group docs_nav sticky-top
+  sublist_class: "list-group"
+  item_class: toc-entry
+  item_prefix: toc-
