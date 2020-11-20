@@ -10,9 +10,12 @@
         color: $tabbed_nav_text_colour;
       }
       .nav-item {
-        a.nav-link.active {
-          background-color: $tabbed_nav_active_bg_colour !important;
-          color: $tabbed_nav_active_colour !important;
+        a.nav-link {
+          display: block;
+          &.active {
+            background-color: $tabbed_nav_active_bg_colour !important;
+            color: $tabbed_nav_active_colour !important;
+          }
         }
       }
       .nav-item.dropdown.show {
