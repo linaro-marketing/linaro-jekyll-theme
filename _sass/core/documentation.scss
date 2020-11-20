@@ -1,0 +1,25 @@
+#wrapper {
+  ul.docs_nav {
+    &.sticky-top {
+      top: 80px;
+    }
+    max-height: 60vh;
+    overflow-y: scroll;
+    &.fixed_nav {
+      position: fixed;
+    }
+    li.toc-entry {
+      list-style: none;
+      padding-left: 10px;
+    }
+    li {
+      padding-left: 10px;
+      list-style: none;
+    }
+    ul.list-group {
+      li {
+        list-style: none;
+      }
+    }
+  }
+}
