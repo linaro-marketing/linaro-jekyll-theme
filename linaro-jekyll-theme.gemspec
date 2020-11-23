@@ -30,6 +30,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-sitemap", "1.4.0"
   # Jekyll Tidy - HTML minfier
   spec.add_runtime_dependency 'jekyll-tidy', '0.2.2'
+  # Jekyll-toc for generating table of contents for documentation pages.
+  spec.add_runtime_dependency 'jekyll-toc', '0.15.0'
   # Add's an RSS feed for your posts
   spec.add_runtime_dependency "jekyll-feed", "0.13.0"
   # JS Bundler / Compression
