@@ -112,6 +112,8 @@ favicon: /assets/images/favicon.png
 name: Jumbo Jekyll Theme
 # The blog filler element
 blog_filler_element: blog/blog_filler_element.html
+# Breadcrumb banner image
+breadcrumb_banner: /assets/images/breadcrumb-banner.png
 # Placeholder avatar
 avatar_placeholder: /assets/images/avatar-placeholder.jpg
 # Blog Post Image Placholder
