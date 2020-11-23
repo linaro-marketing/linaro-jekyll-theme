@@ -204,9 +204,8 @@ $(document).ready(function () {
   $(window).scroll(function () {
     navbar();
   });
-
   // Sticky tab bar setup
-  if ("#tabbed-nav-bar".length > 0) {
+  if ($("#tabbed-nav-bar").length > 0) {
     var text = $("#tabbed-nav-bar ul li a.active").text();
     $("#sub-navigation-header").text(text);
     var stickyTabBarOffset = $("#tabbed-nav-bar").offset().top;
@@ -222,8 +221,7 @@ $(document).ready(function () {
       stickyNav();
     });
   }
-
-  //   Multi-level dropdowns
+  // Multi-level dropdowns
   $(".navbar .dropdown-menu > li:not(.dropdown-item)").on("click", function (
     e
   ) {
