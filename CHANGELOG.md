@@ -24,6 +24,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 * Added a documentation layout. This will predominantly be used by the 96boards documentation
 * Added the ability to simply provide a path to the navbar brand image and also specifiy an alt tag
 * Added support for the use of a sticky tab bar. Provides per page sub navigation as a tabbed navbar row.
+* Added breadcrumb background image support by setting `breadcrumb_banner` in your `_config.yml`.
 
 
 ### Fixes
