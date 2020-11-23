@@ -24,10 +24,10 @@
   }
   #doc_content {
     a.anchor {
-      padding-top: 100px;
+      padding-top: 200px;
+      margin-top: -200px;
       visibility: hidden;
       display: block;
-      margin-top: -100px;
     }
   }
 }
