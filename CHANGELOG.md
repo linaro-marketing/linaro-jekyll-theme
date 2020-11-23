@@ -17,6 +17,19 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 4.2.0 - (2020-11-23)
+---
+
+### New
+* Added a documentation layout. This will predominantly be used by the 96boards documentation
+* Added the ability to simply provide a path to the navbar brand image and also specifiy an alt tag
+* Added support for the use of a sticky tab bar. Provides per page sub navigation as a tabbed navbar row.
+
+
+### Fixes
+* Added missing image alt text and aria labels
+
+
 ## 4.1.6 - (2020-11-16)
 ---
 
