@@ -12,7 +12,7 @@ layout: base
           {% if page.toc %}
             <div class="col col-12 col-lg-3" id="table-of-contents">{{ content | toc_only }}</div>
           {% endif %}
-            <div class="col col-12 col-lg-9"id="markdown-content">{{ content | inject_anchors }}</div>
+            <div class="col col-12 {% if page.toc %}col-lg-9{% endif %}"id="markdown-content">{{ content | inject_anchors }}</div>
         </div>
     </div>
   </div>
