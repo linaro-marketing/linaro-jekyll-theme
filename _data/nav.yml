@@ -2,6 +2,10 @@ universal_nav: true
 search:
   enabled: true
   label: Linaro
+brand:
+  # custom_include: nav/brand.html
+  path: /assets/images/Linaro-Logo.svg
+  alt: Linaro logo
 pages:
   - title: Features
     options:
@@ -25,9 +29,12 @@ pages:
             url: /flow/
           - text: Post
             url: /post/
+          - url: /documentation-page/
+            text: Documentation Page
   - options:
       - text: Overview
         url: /engineering/
+        external: true
       - text: Artificial Intelligence
         url: /engineering/artificial-intelligence/
       - text: Autonomous Vehicles
@@ -67,7 +74,8 @@ pages:
       - text: Multimedia
         url: /engineering/multimedia/
     title: Engineering
-  - title: Membership
-    url: /membership/
+  - title: View on GitHub
+    url: https://www.github.com/linaro-marketing/linaro-jekyll-theme
+    external: true
   - url: /blog/
     title: Blog
