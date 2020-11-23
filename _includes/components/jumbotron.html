@@ -5,15 +5,21 @@
         {% for slide in page.jumbotron.slider %}
         <div class="item d-flex align-items-center owl-slide {% if forloop.first %}active{% endif %}">
              {% if slide.image %}
-                {% assign image_path = slide.image  %}
-                {% picture header_slider_image {{image_path}} %}
+                {% assign image_path = slide.image %}
+                {% if slide.image_alt %}
+                    {% capture image_alt %}{{slide.image_alt}}{% endcapture%}
+                {% else %}
+                    {% if slide.title %}{% assign alt_title = slide.title %}{% else %}{% assign alt_title = page.title %}{% endif %}
+                    {% capture image_alt %}{{alt_title}} slider header background{% endcapture%}
+                {% endif %}
+                {% picture header_slider_image {{image_path}} --alt {{image_alt}} %}
             {% endif %}
             <div class="container {% if slide.inner_class %}{{slide.inner_class}}{% endif %}">
                 <div class="inner_content_wrapper">
                 {% if slide.inner-image %}
                     <img class="d-inline-block lazyload"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                        data-src="{{slide.inner-image}}" alt="Slide {{forloop.index}} inner image" />
+                        data-src="{{slide.inner-image}}" alt="Slide {{forloop.index}}" />
                 {% endif %}
                 {% if slide.title %}
                     <h1 class=" {% if slide.title-class %}{{slide.title-class}}{% endif %}">
@@ -47,7 +53,13 @@
 {% if page.jumbotron.image %}background_image{% endif%} {% if page.jumbotron.class %}{{page.jumbotron.class}}{% endif %}">
     {% if page.jumbotron.image %}
         {% assign image_path = page.jumbotron.image  %}
-        {% picture header_image {{image_path}} %}
+        {% if page.jumbotron.image_alt %}
+            {% capture image_alt %}{{page.jumbotron.image_alt}}{% endcapture%}
+        {% else %}
+            {% if page.jumbotron.title %}{% assign alt_title = page.jumbotron.title %}{% else %}{% assign alt_title = page.title %}{% endif %}
+            {% capture image_alt %}{{alt_title}} header background{% endcapture%}
+        {% endif %}
+        {% picture header_image {{image_path}} --alt {{alt_title}} %}
     {% endif %}
     {% if page.jumbotron.video %}
         <video autoplay muted preload="none" poster="{{page.jumbotron.video.poster}}" playsinline loop id="jumbotronVideo">
