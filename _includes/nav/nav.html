@@ -8,7 +8,13 @@
 {% endif %}
 <nav class="navbar navbar-expand-md navbar-light bg-light" id="main-navigation">
     <div class="container">
-        {% include nav/brand.html %}
+        {% if site.data.nav.brand.custom_include %}
+            {% include {{site.data.nav.brand.custom_include}} %}
+        {% else %}
+            <a class="navbar-brand" href="/">
+                <img src="{{site.data.nav.brand.path}}" alt="{{site.data.nav.brand.alt}}" height="60" class="d-inline-block align-top">
+            </a>
+        {% endif %}
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse"
             aria-controls="navbar-collapse " aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -87,7 +93,7 @@
                                         <li>
                                             <a href="{{menu_option.url}}">
                                             {{menu_option.text}}
-                                            {% if menu_option.external %}<i class="glyphicon glyphicon-new-window pull-right"></i>{% endif %}
+                                            {% if menu_option.external %}<i class="icon-link-ext-alt float-right"></i>{% endif %}
                                             </a>
                                         </li>
                                     {% endif %}
@@ -107,7 +113,10 @@
                                 {% endfor %}
                             {% endif %}
                         <li class="nav-item {{active}}">
-                            <a class="nav-link" href="{{section.url}}">{{section.title}} {% if active == "active" %}<span class="sr-only">(current)</span>{% endif %}</a>
+                            <a class="nav-link" href="{{section.url}}">
+                                {{section.title}} 
+                                {% if section.external %}<i class="icon-link-ext-alt float-right"></i>{% endif %}
+                                {% if active == "active" %}<span class="sr-only">(current)</span>{% endif %}</a>
                         </li>
                     {% endif %}
                 {% endfor %}
