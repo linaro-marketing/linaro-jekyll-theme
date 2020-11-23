@@ -21,6 +21,7 @@ jumbotron:
         Your slides description
       title-class: big-title # Class applied to the heading
       image: /assets/images/test/background-image1.jpg # The background image to be used for the slider item
+      image_alt: Your slider image alt for a11y
       # A list of "call to action" buttons to be displayed on your slide
       buttons:
         - title: View on GitHub
@@ -42,6 +43,7 @@ jumbotron:
   # Description text to be displayed on the slider
   description: >
     Your slides description
+  image_alt: Your Awesome a11y ready alt tag
   image: /assets/images/test/background-image1.jpg # The background image to be used for your header.
   buttons:
     - title: View on Github
