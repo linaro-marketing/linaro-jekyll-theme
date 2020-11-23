@@ -7,3 +7,15 @@ pages:
         url: /flow/
         right: true
     urls: [/, /flow/]
+  - list:
+      - title: Documentation Example
+        url: /documentation-page/
+        sub-pages: true
+      - title: Getting Started
+        url: /flow/
+      - title: Further Guides
+        url: /flow/
+      - title: Contributing
+        url: /flow/
+        right: true
+    urls: [/documentation-page/]
