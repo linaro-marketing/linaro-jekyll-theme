@@ -6,7 +6,12 @@
 {% if current_page_url == "/" %}
     {% assign current_page_url  = "do-no-set"%}
 {% endif %}
-<nav class="navbar navbar-expand-md navbar-light bg-light" id="main-navigation">
+{% if site.data.nav.expand_breakpoint %}
+    {% assign nav_expand_point = site.data.nav.expand_breakpoint %}
+{% else %}
+    {% assign nav_expand_point = "md" %}
+{% endif %}
+<nav class="navbar navbar-expand-{{nav_expand_point}} navbar-light bg-light" id="main-navigation">
     <div class="container">
         {% if site.data.nav.brand.custom_include %}
             {% include {{site.data.nav.brand.custom_include}} %}
