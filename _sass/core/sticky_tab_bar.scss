@@ -12,6 +12,7 @@
       .nav-item {
         a.nav-link {
           display: block;
+          color: $tabbed_nav_text_colour;
           &.active {
             background-color: $tabbed_nav_active_bg_colour !important;
             color: $tabbed_nav_active_colour !important;
