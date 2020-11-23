@@ -57,7 +57,13 @@ pages:
           - text: Power Management
             url: /engineering/core/arm-power-management/
           - text: Power Management EAS
-            url: /engineering/core/arm-power-management/eas/
+            options:
+              - text: Flow
+                url: /flow/
+              - text: Post
+                url: /post/
+              - url: /documentation-page/
+                text: Documentation Page
           - text: Power Management Farm
             url: /engineering/core/arm-power-management/pmwg-farm/
           - text: Security
