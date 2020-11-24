@@ -1,5 +1,11 @@
 #wrapper {
   #tabbed-nav-bar {
+    z-index: 9999999;
+    position: inherit;
+    &.fixed-top {
+      z-index: 999999;
+      position: fixed;
+    }
     nav.navbar {
       min-height: $tabbed_nav_height !important;
       background-color: $tabbed_nav_bg !important;
