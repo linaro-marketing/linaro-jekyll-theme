@@ -37,6 +37,7 @@ jumbotron:
 
 ```yaml
 jumbotron:
+  #inner-image: /assets/images/your-image.png # Your inner image to be displayed at the top of the container.
   class: text-center # Applied to the jumbotron itself
   inner_class: dotted # Applied to the each slides container.
   title: A feature-packed Jekyll theme # Title displayed as a h1 heading
