@@ -13,9 +13,4 @@ pages:
         sub-pages: true
       - title: Getting Started
         url: /flow/
-      - title: Further Guides
-        url: /flow/
-      - title: Contributing
-        url: /flow/
-        right: true
     urls: [/documentation-page/]
