@@ -76,6 +76,11 @@
     {% endif %}
     <div class="container {% if page.jumbotron.inner_class %}{{page.jumbotron.inner_class}}{% endif %}">
             <div class="inner_content_wrapper">
+            {% if page.jumbotron.inner-image %}
+                <img class="d-inline-block lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="{{page.jumbotron.inner-image}}" alt="Header inner image" />
+            {% endif %}
             <h1 class="">{{page.jumbotron.title}}</h1>
             {% if page.jumbotron.description %}
             <p class="lead">
