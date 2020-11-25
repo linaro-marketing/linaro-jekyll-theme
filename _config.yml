@@ -108,6 +108,13 @@ google_analytics:
 social_media_share_image: /assets/images/social-media-image.png
 # Set the default favicon
 favicon: /assets/images/favicon.png
+# Toggle the animated navbar dropdown feature
+# Navbar dropdowns will open on hover
+hover_nav_dropdowns: true
+# Set the class used to animate dropdowns e.g. fade-up / fade-down
+nav_dropdowns_animation_class: fade-down
+# The bootstrap breakpoint at which the navbars will expand
+nav_expand_breakpoint: lg
 # Site Name - your brand name
 name: Jumbo Jekyll Theme
 # The blog filler element
