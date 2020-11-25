@@ -51,10 +51,10 @@
                         {% else %}
                             <li role="presentation" 
                             class=" nav-item tabbed-nav-btn {% if tab.right %}pull-right{% endif %}">
-                                <a href="{% if tab.url == "<<current_page>>"%}{{page.url}}{% else %}{{tab.url}}{% endif %}" 
-                                class="nav-link {% if tab.url == "<<current_page>>"%}active{% elsif page.url == tab.url or tab.sub-pages and page.url contains tab.url or tab.active %}active{% endif %}"
+                                <a href="{% if tab.url == '__current_page__' %}{{page.url}}{% else %}{{tab.url}}{% endif %}" 
+                                class="nav-link {% if tab.url == '__current_page__'%}active{% elsif page.url == tab.url or tab.sub-pages and page.url contains tab.url or tab.active %}active{% endif %}"
                                 aria-controls="overview" role="link">
-                                    {% if tab.tile == "<<current_page>>"%}
+                                    {% if tab.tile == "__current_page__" %}
                                         {{page.title}}
                                     {% else %}
                                         {{tab.title}}
