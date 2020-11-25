@@ -26,6 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 * Added support for the use of a sticky tab bar. Provides per page sub navigation as a tabbed navbar row.
 * Added breadcrumb background image support by setting `breadcrumb_banner` in your `_config.yml`.
 * Added inner-image support to jumbotron header
+* Added animated dropdown menu feature. The first dropdowns will show on hover.
 
 
 ### Fixes
