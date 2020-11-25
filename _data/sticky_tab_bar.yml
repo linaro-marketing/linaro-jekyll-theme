@@ -14,3 +14,11 @@ pages:
       - title: Getting Started
         url: /flow/
     urls: [/documentation-page/]
+  - list:
+      - title: <<current_page>>
+        url: <<current_page>>
+        sub-pages: true
+      - title: Getting Started
+        url: /flow/
+    sub-pages-enabled: true
+    urls: [/projects/]
