@@ -1,4 +1,32 @@
 #wrapper {
+  @include media-breakpoint-up($nav_expand_point) {
+    .navbar.hover_animated .nav-item > .dropdown-menu {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      margin-top: 0;
+    }
+    .navbar.hover_animated .nav-item:hover .nav-link {
+      color: #fff;
+    }
+    .navbar.hover_animated .dropdown-menu.fade-down {
+      top: 80%;
+      transform: rotateX(-75deg);
+      transform-origin: 0% 0%;
+    }
+    .navbar.hover_animated .dropdown-menu.fade-up {
+      top: 180%;
+    }
+    .navbar.hover_animated .nav-item:hover > .dropdown-menu {
+      transition: 0.3s;
+      opacity: 1;
+      visibility: visible;
+      top: 100%;
+      transform: rotateX(0deg);
+    }
+  }
+
   #universal_nav {
     z-index: 2;
     position: static;
