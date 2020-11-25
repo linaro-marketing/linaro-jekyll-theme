@@ -81,7 +81,9 @@
                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                     data-src="{{page.jumbotron.inner-image}}" alt="Header inner image" />
             {% endif %}
-            <h1 class="">{{page.jumbotron.title}}</h1>
+            {% if page.jumbotron.title %}
+                <h1 {% if page.jumbotron.title-class %}class="{{page.jumbotron.title-class}}"{% endif %}>{{page.jumbotron.title}}</h1>
+            {% endif %}
             {% if page.jumbotron.description %}
             <p class="lead">
                 {{page.jumbotron.description }}
