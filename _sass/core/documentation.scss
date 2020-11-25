@@ -4,7 +4,7 @@
       top: 80px;
     }
     max-height: 60vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     &.fixed_nav {
       position: fixed;
     }
