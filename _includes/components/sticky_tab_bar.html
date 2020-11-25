@@ -24,7 +24,7 @@
 {% endif %}
 {% if tab-list %}
 <div class="tabbed-area non-sticky-nav" id="tabbed-nav-bar"><!-- Nav tabs Wrapper-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation"><!-- Nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light {% if site.hover_nav_dropdowns %}hover_animated{% endif %}" role="navigation"><!-- Nav -->
         <div class="container">
             <a class="navbar-brand d-block d-lg-none" id="sub-navigation-header" href="#"></a><!-- Navbar Brand -->
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#tabbed-nav-bar-collapse"
@@ -42,7 +42,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                     {{tab.title}}
                                 </a>
-                                <div class="dropdown-menu">
+                                <div class="dropdown-menu {% if site.nav_dropdowns_animation_class %}{{site.nav_dropdowns_animation_class}}{% endif %}">
                                     {% for option in tab.options %}
                                         <a class="dropdown-item" href="{{option.url}}">{{option.title}}</a>
                                     {% endfor %}

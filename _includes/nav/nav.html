@@ -6,12 +6,8 @@
 {% if current_page_url == "/" %}
     {% assign current_page_url  = "do-no-set"%}
 {% endif %}
-{% if site.data.nav.expand_breakpoint %}
-    {% assign nav_expand_point = site.data.nav.expand_breakpoint %}
-{% else %}
-    {% assign nav_expand_point = "md" %}
-{% endif %}
-<nav class="navbar navbar-expand-{{nav_expand_point}} navbar-light bg-light" id="main-navigation">
+{% assign nav_expand_point = site.nav_expand_breakpoint %}
+<nav class="navbar navbar-expand-{{nav_expand_point}} navbar-light bg-light {% if site.hover_nav_dropdowns %}hover_animated{% endif %}" id="main-navigation">
     <div class="container">
         {% if site.data.nav.brand.custom_include %}
             {% include {{site.data.nav.brand.custom_include}} %}
@@ -63,7 +59,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 {{section.title}}
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdown-{{forloop.index}}">
+                            <ul class="dropdown-menu {% if site.nav_dropdowns_animation_class %}{{site.nav_dropdowns_animation_class}}{% endif %}" aria-labelledby="dropdown-{{forloop.index}}">
                                 {% for menu_option in section.options %}
                                     {% if menu_option.options %}
                                     <li class="dropdown-item dropdown text-center text-{{nav_expand_point}}-left {% if section.left %} pull-left {% endif %}">
