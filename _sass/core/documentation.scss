@@ -1,5 +1,11 @@
 #wrapper {
   ul.docs_nav {
+    li.toc-entry > a {
+      color: black;
+    }
+    li.toc-entry {
+      padding: 5px 0;
+    }
     &.sticky-top {
       top: 80px;
     }
