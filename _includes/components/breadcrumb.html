@@ -1,10 +1,13 @@
 {% assign page-url = page.url | split: "/" %}
 {% assign iterator = 2 %}
 {% assign breadcrumb-path = "/" %}
-<nav aria-label="breadcrumb" id="breadcrumb">
+<nav aria-label="breadcrumb" {% if site.breadcrumb_banner %}class="breadcrumb_bg"{% endif %}id="breadcrumb">
+    {% if site.breadcrumb_banner %}
+        {% picture breadcrumb_banner {{site.breadcrumb_banner}} --alt "Breadcrumb banner" %}
+    {% endif %}
     <div class="container">
         <h1>{{page.title}}</h1>
-        <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <ol class="breadcrumb mb-0"" itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"
             class="breadcrumb-item">
                 <a itemprop="item" href="/">

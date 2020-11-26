@@ -1,0 +1,76 @@
+{% if page.sticky_tab_bar.first %}
+    {% assign tab-list = page.sticky_tab_bar %}
+{% else %}
+    {% assign sub-nav-tabs = site.data.sticky_tab_bar.pages %}
+{% endif %}
+{% if sub-nav-tabs %}
+    {% assign page-base =  page.url | split:'/' %}
+    {% for each in sub-nav-tabs %}
+        {% for each-url in each.urls %}
+            {% if each-url == page.url %}
+                {% if each.list %}
+                    {% assign tab-list = each.list %}
+                {% endif %}
+            {% elsif each.sub-pages-enabled %}
+                {% if page.url contains each-url %}
+                    {% assign tab-list = each.list %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% if each.custom-include %}
+            {% assign custom-include = each.custom-include %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if tab-list %}
+<div class="tabbed-area non-sticky-nav" id="tabbed-nav-bar"><!-- Nav tabs Wrapper-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light {% if site.hover_nav_dropdowns %}hover_animated{% endif %}" role="navigation"><!-- Nav -->
+        <div class="container">
+            <a class="navbar-brand d-block d-lg-none" id="sub-navigation-header" href="#"></a><!-- Navbar Brand -->
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#tabbed-nav-bar-collapse"
+             aria-controls="tabbed-nav-bar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="sr-only">Toggle navigation</span>
+            </button>
+            <div class="collapse navbar-collapse" id="tabbed-nav-bar-collapse"><!-- Navbar Collapse -->
+                <ul class="nav nav-pills flex-column flex-lg-row tabbed-nav w-100" id="tab-row" role="tablist">
+                    {% for tab in tab-list %}
+                        {% if tab.options %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    {{tab.title}}
+                                </a>
+                                <div class="dropdown-menu {% if site.nav_dropdowns_animation_class %}{{site.nav_dropdowns_animation_class}}{% endif %}">
+                                    {% for option in tab.options %}
+                                        <a class="dropdown-item" href="{{option.url}}">{{option.title}}</a>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        {% else %}
+                            <li role="presentation" 
+                            class=" nav-item tabbed-nav-btn {% if tab.right %}pull-right{% endif %}">
+                                <a href="{% if tab.url == '__current_page__' %}{{page.url}}{% else %}{{tab.url}}{% endif %}" 
+                                class="nav-link {% if tab.url == '__current_page__'%}active{% elsif page.url == tab.url or tab.sub-pages and page.url contains tab.url or tab.active %}active{% endif %}"
+                                aria-controls="overview" role="link">
+                                    {% if tab.title == "__current_page__" %}
+                                        {{page.title}}
+                                    {% else %}
+                                        {{tab.title}}
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+{% elsif custom-include %}
+    {% include {{custom-include}}.html %}
+{% else %}
+No content found - please add to _data/sticky_tab_bar.yml. More information available <a href="/jekyll/includes/sticky-tab-bar/">here</a>.
+{% endif %}

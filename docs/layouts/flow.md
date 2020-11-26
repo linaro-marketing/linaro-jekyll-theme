@@ -21,6 +21,7 @@ jumbotron:
         Your slides description
       title-class: big-title # Class applied to the heading
       image: /assets/images/test/background-image1.jpg # The background image to be used for the slider item
+      image_alt: Your slider image alt for a11y
       # A list of "call to action" buttons to be displayed on your slide
       buttons:
         - title: View on GitHub
@@ -36,12 +37,14 @@ jumbotron:
 
 ```yaml
 jumbotron:
+  #inner-image: /assets/images/your-image.png # Your inner image to be displayed at the top of the container.
   class: text-center # Applied to the jumbotron itself
   inner_class: dotted # Applied to the each slides container.
   title: A feature-packed Jekyll theme # Title displayed as a h1 heading
   # Description text to be displayed on the slider
   description: >
     Your slides description
+  image_alt: Your Awesome a11y ready alt tag
   image: /assets/images/test/background-image1.jpg # The background image to be used for your header.
   buttons:
     - title: View on Github
@@ -485,4 +488,41 @@ sections:
           - Bullet 1
           - Bullet 2
           - Bullet 3
+```
+## Sticky Tab Bar
+
+The sticky tab bar allows you to add sub navigation to a page. This was originally design for the 96Boards.org site which needed additional links on a per page basis.
+
+To add the sticky tab bar to a page simply set this front matter in a flow layout based page.
+
+```yaml
+sticky_tab_bar_enabled: true
+```
+In order to define the tabs for a given page or section of your websites, add to either the page front matter directly or to a `_data/sticky_tab_bar.yml` Jekyll data file.
+
+
+To you page front matter directly:
+
+```yaml
+sticky_tab_bar:
+  - title: Home
+    url: /
+    #active: false toggle the active class 
+  - title: Get Started
+    url: /get-started/
+```
+
+or with the `_data/sticky_tab_bar.yml` data file:
+
+```yaml
+pages:
+  - list:
+      - title: Blog
+        url: /blog/
+        sub-pages: true
+      - title: Flow Layout
+        url: /flow/
+        right: true
+    urls: [/, /flow/]
+
 ```
