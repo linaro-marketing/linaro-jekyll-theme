@@ -1,12 +1,12 @@
 pages:
-  - list:
-      - title: Blog
-        url: /blog/
-        sub-pages: true
-      - title: Flow Layout
-        url: /flow/
-        right: true
-    urls: [/, /flow/]
+  # - list:
+  #     - title: Blog
+  #       url: /blog/
+  #       sub-pages: true
+  #     - title: Flow Layout
+  #       url: /flow/
+  #       right: true
+  #   urls: [/, /flow/]
   - list:
       - title: Documentation Example
         url: /documentation-page/
@@ -15,10 +15,10 @@ pages:
         url: /flow/
     urls: [/documentation-page/]
   - list:
-      - title: <<current_page>>
-        url: <<current_page>>
+      - title: __current_page__
+        url: __current_page__
         sub-pages: true
       - title: Getting Started
         url: /flow/
     sub-pages-enabled: true
-    urls: [/projects/]
+    urls: [/]
