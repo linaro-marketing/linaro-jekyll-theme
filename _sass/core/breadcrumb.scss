@@ -1,18 +1,40 @@
 #wrapper {
-    #breadcrumb {
-        background-color: $breadcrumb_bg_color;
-        h1 {
-            margin-top:0px;
-            margin-bottom:0px;
-            padding-top:10px;
-        }
+  #breadcrumb {
+    background-color: $breadcrumb_bg_color;
+    &.breadcrumb_bg {
+      position: relative;
+      img.breadcrumb_image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(0.8);
+        z-index: 0;
+      }
+      .container {
+        z-index: 1;
+        position: relative;
         ol {
-            background-color: $breadcrumb_bg_color;
-            padding-left:0px;
-            li:not(:first-child)::before {
-                content: "\00bb\00a0";
-                padding-left:5px;
-            }
+          background-color: transparent;
+          color: white;
         }
+        h1 {
+          color: white;
+        }
+      }
     }
+    h1 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-top: 10px;
+    }
+    ol {
+      background-color: $breadcrumb_bg_color;
+      padding-left: 0px;
+      li:not(:first-child)::before {
+        content: "\00bb\00a0";
+        padding-left: 5px;
+      }
+    }
+  }
 }

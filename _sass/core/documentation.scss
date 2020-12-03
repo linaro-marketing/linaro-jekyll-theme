@@ -1,0 +1,39 @@
+#wrapper {
+  ul.docs_nav {
+    li.toc-entry > a {
+      color: black;
+    }
+    li.toc-entry {
+      padding: 5px 0;
+    }
+    &.sticky-top {
+      top: 80px;
+    }
+    max-height: 60vh;
+    overflow-y: auto;
+    &.fixed_nav {
+      position: fixed;
+    }
+    li.toc-entry {
+      list-style: none;
+      padding-left: 10px;
+    }
+    li {
+      padding-left: 10px;
+      list-style: none;
+    }
+    ul.list-group {
+      li {
+        list-style: none;
+      }
+    }
+  }
+  #doc_content {
+    a.anchor {
+      padding-top: 200px;
+      margin-top: -200px;
+      visibility: hidden;
+      display: block;
+    }
+  }
+}

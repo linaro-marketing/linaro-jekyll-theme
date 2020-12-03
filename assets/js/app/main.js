@@ -204,13 +204,30 @@ $(document).ready(function () {
   $(window).scroll(function () {
     navbar();
   });
-
-  //   Multi-level dropdowns
-  $(".navbar .dropdown-menu > li:not(.dropdown-item)").on("click", function (
-    e
-  ) {
-    e.stopPropagation();
-  });
+  // Sticky tab bar setup
+  if ($("#tabbed-nav-bar").length > 0) {
+    var text = $("#tabbed-nav-bar ul li a.active").text();
+    $("#sub-navigation-header").text(text);
+    var stickyTabBarOffset = $("#tabbed-nav-bar").offset().top;
+    const stickyNav = () => {
+      var scroll = $(window).scrollTop();
+      if (scroll > stickyTabBarOffset) {
+        $("#tabbed-nav-bar").addClass("fixed-top");
+      } else {
+        $("#tabbed-nav-bar").removeClass("fixed-top");
+      }
+    };
+    $(window).scroll(function () {
+      stickyNav();
+    });
+  }
+  // Multi-level dropdowns
+  $(".navbar .dropdown-menu > li:not(.dropdown-item)").on(
+    "click",
+    function (e) {
+      e.stopPropagation();
+    }
+  );
   $(".navbar .dropdown-item").on("click", function (e) {
     var $el = $(this).children(".dropdown-toggle");
     var $parent = $el.offsetParent(".dropdown-menu");
@@ -390,36 +407,144 @@ $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  if ($("#post_search").length > 0) {
-    var file_path = $("#post_search").data("file-path");
+  // SimpleJekyllSearch
+  // if ($("#post_search").length > 0) {
+  //   var file_path = $("#post_search").data("file-path");
 
+  //   $("#results-container").hide();
+  //   $("#search-input").keyup(function () {
+  //     if ($("#search-input").val().length == 0) {
+  //       $("#results-container").fadeOut("fast");
+  //       $(".close_search").hide();
+  //     } else {
+  //       $("#results-container").fadeIn("fast");
+  //       $(".close_search").show();
+  //     }
+  //   });
+  //   $(".close_search").click(function (e) {
+  //     e.preventDefault();
+  //     $("#search-input").val("");
+  //     $("#results-container").fadeOut("fast");
+  //     $(".close_search").hide();
+  //   });
+
+  //   console.log(file_path);
+  //   SimpleJekyllSearch({
+  //     searchInput: document.getElementById("search-input"),
+  //     resultsContainer: document.getElementById("results-container"),
+  //     searchResultTemplate:
+  //       '<li class="media flex-row"><picture><img class="lazyload mr-3 img-thumbnail suggested_post_thumb search_result_img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{image}"></picture><div class="media-body"><a href="{url}"><h5 class="mt-0 mb-1">{title}</h5><em class="suggested_post_date">{date}</em><p>{description}</p></a></div></li>',
+  //     json: file_path,
+  //     success: function (data) {
+  //       console.log(data);
+  //     },
+  //   });
+  // }
+  // Post Search Functionality using the FESS search API.
+  if ($("#post_search").length > 0) {
     $("#results-container").hide();
-    $("#search-input").keyup(function () {
+
+    function getSearchResults(
+      progress,
+      url,
+      searchLabel,
+      searchVal,
+      startPosition,
+      limit,
+      searchResults = []
+    ) {
+      return new Promise((resolve, reject) =>
+        fetch(url)
+          .then((response) => {
+            if (response.status !== 200) {
+              throw `${response.status}: ${response.statusText}`;
+            }
+            console.log(searchVal);
+            response
+              .json()
+              .then((data) => {
+                console.log(data);
+                searchResults = searchResults.concat(data.response.result);
+                if (data.response.next_page && searchResults.length < limit) {
+                  //   progress && progress(searchResults);
+                  startPosition += 10;
+                  var nextUrl = `https://search.linaro.org/json/?fields.label=${searchLabel}&q=${searchVal}&start=${startPosition}&sort=last_modified.desc`;
+                  getSearchResults(
+                    progress,
+                    nextUrl,
+                    searchLabel,
+                    searchVal,
+                    startPosition,
+                    limit,
+                    searchResults
+                  )
+                    .then(resolve)
+                    .catch(reject);
+                } else {
+                  var responseData = {
+                    results: searchResults.slice(0, limit),
+                    response: data.response,
+                  };
+                  resolve(responseData);
+                }
+              })
+              .catch(reject);
+          })
+          .catch(reject)
+      );
+    }
+    var timer;
+    $("#search-input").keyup(() => {
       if ($("#search-input").val().length == 0) {
         $("#results-container").fadeOut("fast");
         $(".close_search").hide();
       } else {
         $("#results-container").fadeIn("fast");
         $(".close_search").show();
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          var searchLabel = $("#post_search").data("search-label");
+          var searchQuery = $("#search-input").val();
+          var searchUrl = `https://search.linaro.org/json/?fields.label=${searchLabel}&q=${searchQuery}&start=0&sort=last_modified.desc`;
+          getSearchResults(
+            0,
+            searchUrl,
+            searchLabel,
+            $("#search-input").val(),
+            0,
+            10,
+            []
+          )
+            .then((responseData) => {
+              console.log(responseData);
+              console.log("Results:", responseData.results);
+              console.log("Response:", responseData.response);
+              var pageElements = [];
+              pageElements += `<li class="text-center">Found ${responseData.response.record_count} results</li>`;
+              for (var i = 0; i < responseData.results.length; i++) {
+                var formattedDate = new Date(
+                  responseData.results[i].last_modified
+                ).toDateString();
+                var contentDigest = responseData.results[i].digest.slice(
+                  0,
+                  200
+                );
+                pageElements += `
+                  <li class="media flex-row"><div class="media-body"><a href="${responseData.results[i].url}"><h5 class="mt-0 mb-1"> ${responseData.results[i].title}</h5><p>${contentDigest}</p></a></div></li>`;
+              }
+              pageElements += `<li class="text-center"><a href="/search/?q=${searchQuery}">View all search results</a></li>`;
+              $("#results-container").html(pageElements);
+            })
+            .catch(console.error);
+        }, 1000);
       }
     });
+
     $(".close_search").click(function (e) {
       e.preventDefault();
       $("#search-input").val("");
       $("#results-container").fadeOut("fast");
       $(".close_search").hide();
-    });
-
-    console.log(file_path);
-    SimpleJekyllSearch({
-      searchInput: document.getElementById("search-input"),
-      resultsContainer: document.getElementById("results-container"),
-      searchResultTemplate:
-        '<li class="media flex-row"><picture><img class="lazyload mr-3 img-thumbnail suggested_post_thumb search_result_img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{image}"></picture><div class="media-body"><a href="{url}"><h5 class="mt-0 mb-1">{title}</h5><em class="suggested_post_date">{date}</em><p>{description}</p></a></div></li>',
-      json: file_path,
-      success: function (data) {
-        console.log(data);
-      },
     });
   }
 });

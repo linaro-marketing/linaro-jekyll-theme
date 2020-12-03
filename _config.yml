@@ -33,6 +33,7 @@ plugins:
   - japr
   - jekyll_picture_tag
   - jekyll-tidy
+  - jekyll-toc
 collections:
   authors:
     output: true
@@ -107,10 +108,19 @@ google_analytics:
 social_media_share_image: /assets/images/social-media-image.png
 # Set the default favicon
 favicon: /assets/images/favicon.png
+# Toggle the animated navbar dropdown feature
+# Navbar dropdowns will open on hover
+hover_nav_dropdowns: true
+# Set the class used to animate dropdowns e.g. fade-up / fade-down
+nav_dropdowns_animation_class: fade-down
+# The bootstrap breakpoint at which the navbars will expand
+nav_expand_breakpoint: lg
 # Site Name - your brand name
 name: Jumbo Jekyll Theme
 # The blog filler element
 blog_filler_element: blog/blog_filler_element.html
+# Breadcrumb banner image
+breadcrumb_banner: /assets/images/breadcrumb-banner.png
 # Placeholder avatar
 avatar_placeholder: /assets/images/avatar-placeholder.jpg
 # Blog Post Image Placholder
@@ -188,3 +198,13 @@ asset_pipeline:
   compress: true
   output_path: assets/js
   gzip: false
+# jekyll-toc
+toc:
+  min_level: 1
+  max_level: 6
+  ordered_list: false
+  no_toc_section_class: no_toc_section
+  list_class: list-group docs_nav sticky-top
+  sublist_class: "list-group"
+  item_class: toc-entry
+  item_prefix: toc-

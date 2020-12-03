@@ -1,0 +1,35 @@
+#wrapper {
+  #tabbed-nav-bar {
+    z-index: 9999999;
+    position: inherit;
+    &.fixed-top {
+      z-index: 999999;
+      position: fixed;
+    }
+    nav.navbar {
+      min-height: $tabbed_nav_height !important;
+      background-color: $tabbed_nav_bg !important;
+      span.icon-bar {
+        background-color: $tabbed_nav_text_colour;
+      }
+      a#sub-navigation-header {
+        color: $tabbed_nav_text_colour;
+      }
+      .nav-item {
+        a.nav-link {
+          display: block;
+          color: $tabbed_nav_text_colour;
+          &.active {
+            background-color: $tabbed_nav_active_bg_colour !important;
+            color: $tabbed_nav_active_colour !important;
+          }
+        }
+      }
+      .nav-item.dropdown.show {
+        a.nav-link.dropdown-toggle {
+          color: $tabbed_nav_active_colour !important;
+        }
+      }
+    }
+  }
+}
