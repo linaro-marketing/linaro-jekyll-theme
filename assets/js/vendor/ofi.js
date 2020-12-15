@@ -1,272 +1,132 @@
-/*! npm.im/object-fit-images 3.2.4 */
-var objectFitImages = (function () {
+/*! lazysizes - v5.2.2 */
+
+!(function (e, i) {
+  var a;
+  e &&
+    ((a = function (t) {
+      i(e.lazySizes, t), e.removeEventListener("lazyunveilread", a, !0);
+    }),
+    (i = i.bind(null, e, e.document)),
+    "object" == typeof module && module.exports
+      ? i(require("lazysizes"))
+      : "function" == typeof define && define.amd
+      ? define(["lazysizes"], i)
+      : e.lazySizes
+      ? a()
+      : e.addEventListener("lazyunveilread", a, !0));
+})("undefined" != typeof window ? window : 0, function (t, u, f, e) {
   "use strict";
-
-  var OFI = "bfred-it:object-fit-images";
-  var propRegex = /(object-fit|object-position)\s*:\s*([-.\w\s%]+)/g;
-  var testImg =
-    typeof Image === "undefined"
-      ? { style: { "object-position": 1 } }
-      : new Image();
-  var supportsObjectFit = "object-fit" in testImg.style;
-  var supportsObjectPosition = "object-position" in testImg.style;
-  var supportsOFI = "background-size" in testImg.style;
-  var supportsCurrentSrc = typeof testImg.currentSrc === "string";
-  var nativeGetAttribute = testImg.getAttribute;
-  var nativeSetAttribute = testImg.setAttribute;
-  var autoModeEnabled = false;
-
-  function createPlaceholder(w, h) {
-    return (
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='" +
-      w +
-      "' height='" +
-      h +
-      "'%3E%3C/svg%3E"
-    );
-  }
-
-  function polyfillCurrentSrc(el) {
-    if (el.srcset && !supportsCurrentSrc && window.picturefill) {
-      var pf = window.picturefill._;
-      // parse srcset with picturefill where currentSrc isn't available
-      if (!el[pf.ns] || !el[pf.ns].evaled) {
-        // force synchronous srcset parsing
-        pf.fillImg(el, { reselect: true });
-      }
-
-      if (!el[pf.ns].curSrc) {
-        // force picturefill to parse srcset
-        el[pf.ns].supported = false;
-        pf.fillImg(el, { reselect: true });
-      }
-
-      // retrieve parsed currentSrc, if any
-      el.currentSrc = el[pf.ns].curSrc || el.src;
+  var y,
+    i,
+    a = u.createElement("a").style,
+    r = "objectFit" in a,
+    s = /object-fit["']*\s*:\s*["']*(contain|cover)/,
+    l = /object-position["']*\s*:\s*["']*(.+?)(?=($|,|'|"|;))/,
+    A =
+      "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==",
+    n = /\(|\)|'/,
+    d = { center: "center", "50% 50%": "center" };
+  function c(o, r) {
+    function s() {
+      var t = o.currentSrc || o.src;
+      t &&
+        i !== t &&
+        ((i = t),
+        (d.backgroundImage =
+          "url(" + (n.test(t) ? JSON.stringify(t) : t) + ")"),
+        e || ((e = !0), f.rC(l, c.loadingClass), f.aC(l, c.loadedClass)));
     }
-  }
-
-  function getStyle(el) {
-    var style = getComputedStyle(el).fontFamily;
-    var parsed;
-    var props = {};
-    while ((parsed = propRegex.exec(style)) !== null) {
-      props[parsed[1]] = parsed[2];
+    function t() {
+      f.rAF(s);
     }
-    return props;
-  }
-
-  function setPlaceholder(img, width, height) {
-    // Default: fill width, no height
-    var placeholder = createPlaceholder(width || 1, height || 0);
-
-    // Only set placeholder if it's different
-    if (nativeGetAttribute.call(img, "src") !== placeholder) {
-      nativeSetAttribute.call(img, "src", placeholder);
-    }
-  }
-
-  function onImageReady(img, callback) {
-    // naturalWidth is only available when the image headers are loaded,
-    // this loop will poll it every 100ms.
-    if (img.naturalWidth) {
-      callback(img);
-    } else {
-      setTimeout(onImageReady, 100, img, callback);
-    }
-  }
-
-  function fixOne(el) {
-    var style = getStyle(el);
-    var ofi = el[OFI];
-    style["object-fit"] = style["object-fit"] || "fill"; // default value
-
-    // Avoid running where unnecessary, unless OFI had already done its deed
-    if (!ofi.img) {
-      // fill is the default behavior so no action is necessary
-      if (style["object-fit"] === "fill") {
-        return;
-      }
-
-      // Where object-fit is supported and object-position isn't (Safari < 10)
-      if (
-        !ofi.skipTest && // unless user wants to apply regardless of browser support
-        supportsObjectFit && // if browser already supports object-fit
-        !style["object-position"] // unless object-position is used
-      ) {
-        return;
-      }
-    }
-
-    // keep a clone in memory while resetting the original to a blank
-    if (!ofi.img) {
-      ofi.img = new Image(el.width, el.height);
-      ofi.img.srcset =
-        nativeGetAttribute.call(el, "data-ofi-srcset") || el.srcset;
-      ofi.img.src = nativeGetAttribute.call(el, "data-ofi-src") || el.src;
-
-      // preserve for any future cloneNode calls
-      // https://github.com/bfred-it/object-fit-images/issues/53
-      nativeSetAttribute.call(el, "data-ofi-src", el.src);
-      if (el.srcset) {
-        nativeSetAttribute.call(el, "data-ofi-srcset", el.srcset);
-      }
-
-      setPlaceholder(
-        el,
-        el.naturalWidth || el.width,
-        el.naturalHeight || el.height
-      );
-
-      // remove srcset because it overrides src
-      if (el.srcset) {
-        el.srcset = "";
-      }
-      try {
-        keepSrcUsable(el);
-      } catch (err) {
-        if (window.console) {
-          console.warn("https://bit.ly/ofi-old-browser");
-        }
-      }
-    }
-
-    polyfillCurrentSrc(ofi.img);
-
-    el.style.backgroundImage =
-      'url("' + (ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"') + '")';
-    el.style.backgroundPosition = style["object-position"] || "center";
-    el.style.backgroundRepeat = "no-repeat";
-    el.style.backgroundOrigin = "content-box";
-
-    if (/scale-down/.test(style["object-fit"])) {
-      onImageReady(ofi.img, function () {
-        if (
-          ofi.img.naturalWidth > el.width ||
-          ofi.img.naturalHeight > el.height
-        ) {
-          el.style.backgroundSize = "contain";
-        } else {
-          el.style.backgroundSize = "auto";
-        }
+    var e,
+      i,
+      l,
+      d,
+      c = f.cfg;
+    (o._lazysizesParentFit = r.fit),
+      o.addEventListener("lazyloaded", t, !0),
+      o.addEventListener("load", t, !0),
+      f.rAF(function () {
+        var t,
+          e,
+          i,
+          a = o,
+          n = o.parentNode;
+        "PICTURE" == n.nodeName.toUpperCase() && (n = (a = n).parentNode),
+          (e = (t = a).previousElementSibling) &&
+            f.hC(e, y) &&
+            (e.parentNode.removeChild(e),
+            (t.style.position = e.getAttribute("data-position") || ""),
+            (t.style.visibility = e.getAttribute("data-visibility") || "")),
+          y ||
+            y ||
+            ((i = u.createElement("style")),
+            (y = f.cfg.objectFitClass || "lazysizes-display-clone"),
+            u.querySelector("head").appendChild(i)),
+          (l = o.cloneNode(!1)),
+          (d = l.style),
+          l.addEventListener("load", function () {
+            var t = l.currentSrc || l.src;
+            t && t != A && ((l.src = A), (l.srcset = ""));
+          }),
+          f.rC(l, c.loadedClass),
+          f.rC(l, c.lazyClass),
+          f.rC(l, c.autosizesClass),
+          f.aC(l, c.loadingClass),
+          f.aC(l, y),
+          [
+            "data-parent-fit",
+            "data-parent-container",
+            "data-object-fit-polyfilled",
+            c.srcsetAttr,
+            c.srcAttr,
+          ].forEach(function (t) {
+            l.removeAttribute(t);
+          }),
+          (l.src = A),
+          (l.srcset = ""),
+          (d.backgroundRepeat = "no-repeat"),
+          (d.backgroundPosition = r.position),
+          (d.backgroundSize = r.fit),
+          l.setAttribute("data-position", a.style.position),
+          l.setAttribute("data-visibility", a.style.visibility),
+          (a.style.visibility = "hidden"),
+          (a.style.position = "absolute"),
+          o.setAttribute("data-parent-fit", r.fit),
+          o.setAttribute("data-parent-container", "prev"),
+          o.setAttribute("data-object-fit-polyfilled", ""),
+          (o._objectFitPolyfilledDisplay = l),
+          n.insertBefore(l, a),
+          o._lazysizesParentFit && delete o._lazysizesParentFit,
+          o.complete && s();
       });
-    } else {
-      el.style.backgroundSize = style["object-fit"]
-        .replace("none", "auto")
-        .replace("fill", "100% 100%");
-    }
-
-    onImageReady(ofi.img, function (img) {
-      setPlaceholder(el, img.naturalWidth, img.naturalHeight);
-    });
   }
-
-  function keepSrcUsable(el) {
-    var descriptors = {
-      get: function get(prop) {
-        return el[OFI].img[prop ? prop : "src"];
-      },
-      set: function set(value, prop) {
-        el[OFI].img[prop ? prop : "src"] = value;
-        nativeSetAttribute.call(el, "data-ofi-" + prop, value); // preserve for any future cloneNode
-        fixOne(el);
-        return value;
-      },
-    };
-    Object.defineProperty(el, "src", descriptors);
-    Object.defineProperty(el, "currentSrc", {
-      get: function () {
-        return descriptors.get("currentSrc");
-      },
-    });
-    Object.defineProperty(el, "srcset", {
-      get: function () {
-        return descriptors.get("srcset");
-      },
-      set: function (ss) {
-        return descriptors.set(ss, "srcset");
-      },
-    });
-  }
-
-  function hijackAttributes() {
-    function getOfiImageMaybe(el, name) {
-      return el[OFI] && el[OFI].img && (name === "src" || name === "srcset")
-        ? el[OFI].img
-        : el;
-    }
-    if (!supportsObjectPosition) {
-      HTMLImageElement.prototype.getAttribute = function (name) {
-        return nativeGetAttribute.call(getOfiImageMaybe(this, name), name);
-      };
-
-      HTMLImageElement.prototype.setAttribute = function (name, value) {
-        return nativeSetAttribute.call(
-          getOfiImageMaybe(this, name),
-          name,
-          String(value)
-        );
-      };
-    }
-  }
-
-  function fix(imgs, opts) {
-    var startAutoMode = !autoModeEnabled && !imgs;
-    opts = opts || {};
-    imgs = imgs || "img";
-
-    if ((supportsObjectPosition && !opts.skipTest) || !supportsOFI) {
-      return false;
-    }
-
-    // use imgs as a selector or just select all images
-    if (imgs === "img") {
-      imgs = document.getElementsByTagName("img");
-    } else if (typeof imgs === "string") {
-      imgs = document.querySelectorAll(imgs);
-    } else if (!("length" in imgs)) {
-      imgs = [imgs];
-    }
-
-    // apply fix to all
-    for (var i = 0; i < imgs.length; i++) {
-      imgs[i][OFI] = imgs[i][OFI] || {
-        skipTest: opts.skipTest,
-      };
-      fixOne(imgs[i]);
-    }
-
-    if (startAutoMode) {
-      document.body.addEventListener(
-        "load",
-        function (e) {
-          if (e.target.tagName === "IMG") {
-            fix(e.target, {
-              skipTest: opts.skipTest,
-            });
-          }
-        },
-        true
-      );
-      autoModeEnabled = true;
-      imgs = "img"; // reset to a generic selector for watchMQ
-    }
-
-    // if requested, watch media queries for object-fit change
-    if (opts.watchMQ) {
-      window.addEventListener(
-        "resize",
-        fix.bind(null, imgs, {
-          skipTest: opts.skipTest,
-        })
-      );
-    }
-  }
-
-  fix.supportsObjectFit = supportsObjectFit;
-  fix.supportsObjectPosition = supportsObjectPosition;
-
-  hijackAttributes();
-
-  return fix;
-})();
+  (r && r && "objectPosition" in a) ||
+    ((i = function (t) {
+      if (t.detail.instance == f) {
+        var e,
+          i,
+          a,
+          n = t.target,
+          o =
+            ((e = (getComputedStyle(n, null) || {}).fontFamily || ""),
+            (i = e.match(s) || ""),
+            (a = (a = (i && e.match(l)) || "") && a[1]),
+            { fit: (i && i[1]) || "", position: d[a] || a || "center" });
+        return !(!o.fit || (r && "center" == o.position)) && (c(n, o), !0);
+      }
+    }),
+    t.addEventListener("lazybeforesizes", function (t) {
+      var e;
+      t.detail.instance == f &&
+        (null == (e = t.target).getAttribute("data-object-fit-polyfilled") ||
+          e._objectFitPolyfilledDisplay ||
+          i(t) ||
+          f.rAF(function () {
+            e.removeAttribute("data-object-fit-polyfilled");
+          }));
+    }),
+    t.addEventListener("lazyunveilread", i, !0),
+    e && e.detail && i(e));
+});
