@@ -35,14 +35,37 @@
     background-color: $universal_navbar_bg_color;
     color: $universal_navbar_text_color;
     .nav-item {
+      &.nav-item-icon {
+        a.nav-link {
+          padding: 5px 12px;
+        }
+        &:hover {
+          span {
+            color: $universal_navbar_text_color;
+          }
+        }
+        span {
+          color: #fff;
+        }
+      }
+      &:hover {
+        a.nav-link {
+          color: $universal_navbar_active_text_hover_color;
+        }
+      }
       &.active {
-        background-color: $secondary;
+        background-color: $universal_navbar_active_bg_color;
+        a.nav-link {
+          color: $universal_navbar_active_text_color;
+        }
       }
       a.nav-link {
         color: $universal_navbar_text_color;
+        padding: 5px 20px;
       }
     }
-    .navbar-toggler {
+    .navbar-toggler,
+    .dropdown_hamburger {
       .icon-bar {
         background-color: $universal_navbar_text_color;
       }
@@ -76,12 +99,8 @@
         color: $navbar_text_color;
       }
     }
-    .navbar-toggler {
-      .icon-bar {
-        background-color: $navbar_text_color;
-      }
-    }
-    .navbar-toggler {
+    .navbar-toggler,
+    .dropdown_hamburger {
       .icon-bar {
         background-color: $navbar_text_color;
       }
@@ -268,6 +287,66 @@
         /* .navbar open bottom .icon-bar no rotation - straight */
         &:nth-of-type(3) {
           transform: rotate(0);
+        }
+      }
+    }
+  }
+  .dropdown_hamburger {
+    button {
+      background: none;
+      border: none;
+      /* remove the blue outline when active or focused */
+      &:active,
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      margin: 4px 0 4px 0;
+      transition: transform opacity filter transform-origin 0.2s;
+    }
+    .icon-bar {
+      /* .navbar closed top .icon-bar no rotation - straight */
+      &:nth-of-type(1) {
+        transform: rotate(0);
+      }
+
+      /* .navbar open middle .icon-bar visible */
+      &:nth-of-type(2) {
+        opacity: 1;
+        filter: alpha(opacity=100);
+      }
+
+      /* .navbar open bottom .icon-bar no rotation - straight */
+      &:nth-of-type(3) {
+        transform: rotate(0);
+      }
+    }
+    /* styles for when .navbar is closed */
+    &.show {
+      /* basic styles for each icon bar */
+      .icon-bar {
+        /* .navbar open top .icon-bar rotated down 45° */
+        &:nth-of-type(1) {
+          transform: rotate(45deg);
+          transform-origin: 10% 10%;
+        }
+
+        /* .navbar open middle .icon-bar invisible */
+        &:nth-of-type(2) {
+          opacity: 0;
+          filter: alpha(opacity=0);
+        }
+
+        /* .navbar open bottom .icon-bar rotated up 45° */
+        &:nth-of-type(3) {
+          transform: rotate(-45deg);
+          transform-origin: 10% 90%;
         }
       }
     }
