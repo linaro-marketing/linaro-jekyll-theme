@@ -17,6 +17,18 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
+## 4.3.0 - (2020-12-15)
+---
+
+### New
+* Added OFI.js polyfill for object-fit css property
+* Added new universal nav design
+  * Social media icons can be included in the nav now.
+  * 
+### Fixes
+* Fixed object-fit issues in IE
+
+
 ## 4.2.0 - (2020-11-23)
 ---
 
