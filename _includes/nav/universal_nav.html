@@ -40,7 +40,7 @@
                             </div>
                         </li>
                     {% else %}
-                        <li class="nav-item {% if item.icon %}nav-item-icon{% endif %} {% if item.active %}active{% endif %}">
+                        <li class="nav-item {% if item.icon %}nav-item-icon d-none d-{{nav_expand_point}}-block{% endif %} {% if item.active %}active{% endif %}">
                             <a target="_self" class="nav-link" href="{{item.url}}">
                                 {% if item.icon %}
                                     <span class="{{item.icon}}"></span>
@@ -51,6 +51,15 @@
                         </li>
                     {% endif %}
                 {% endfor %}
+                <li class="nav-item nav-item-icon d-block d-{{nav_expand_point}}-none">
+                    {% for item in site.data.universal_nav.items %}
+                        {% if item.icon %}
+                        <a target="_blank" class="nav-link" href="{{item.url}}">
+                            <span class="{{item.icon}}"></span>
+                        </a>
+                        {% endif %}
+                    {% endfor %}
+                </li>
             </ul>
         </div>
     </div>
