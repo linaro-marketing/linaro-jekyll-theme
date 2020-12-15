@@ -18,6 +18,9 @@ function slugify(string) {
 }
 
 $(document).ready(function () {
+  // Object-fit-images ofi.js
+  // Patch for the lack of object-fit css property support in internet explorer.
+  objectFitImages();
   // Clipboard JS
   if ($("div.highlight").length > 0) {
     $("div.highlight").each(function (index) {
