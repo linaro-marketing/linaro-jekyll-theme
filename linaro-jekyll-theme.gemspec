@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "linaro-jekyll-theme"
-  spec.version       = "4.2.0"
+  spec.version       = "4.3.0"
   spec.authors       = ["Kyle Kirkby"]
   spec.email         = ["kyle.kirkby@linaro.org"]
 
@@ -39,7 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'closure-compiler', '~> 1.1', '>= 1.1.14'
   #spec.add_runtime_dependency "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   # Development Dependencies
-  spec.add_development_dependency "bundler", "1.17.2"
-  # spec.add_development_dependency "bundler", "2.1.4"
+  # spec.add_development_dependency "bundler", "1.17.2"
+  spec.add_development_dependency "bundler", "1.17.3"
   # spec.add_development_dependency "rake", "13.0.1"
 end
