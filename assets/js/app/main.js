@@ -201,15 +201,13 @@ $(document).ready(function () {
     }
   }
   navbar();
-  $(window).scroll(function () {
-    navbar();
-  });
   // Sticky tab bar setup
+  var stickyNav;
   if ($("#tabbed-nav-bar").length > 0) {
     var text = $("#tabbed-nav-bar ul li a.active").text();
     $("#sub-navigation-header").text(text);
     var stickyTabBarOffset = $("#tabbed-nav-bar").offset().top;
-    const stickyNav = () => {
+    stickyNav = () => {
       var scroll = $(window).scrollTop();
       if (scroll > stickyTabBarOffset) {
         $("#tabbed-nav-bar").addClass("fixed-top");
@@ -217,10 +215,19 @@ $(document).ready(function () {
         $("#tabbed-nav-bar").removeClass("fixed-top");
       }
     };
-    $(window).scroll(function () {
-      stickyNav();
-    });
   }
+  // Passive window scroll listener.
+  window.addEventListener(
+    "scroll",
+    () => {
+      if ($("#tabbed-nav-bar").length > 0) {
+        stickyNav();
+      }
+      navbar();
+    },
+    { passive: true }
+  );
+
   // Multi-level dropdowns
   $(".navbar .dropdown-menu > li:not(.dropdown-item)").on(
     "click",
