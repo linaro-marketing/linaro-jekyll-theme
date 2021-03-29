@@ -16,7 +16,7 @@
                     {% if item.options %}
                         <li class="nav-item dropdown {% if item.hamburger_toggle %}dropdown_hamburger{% endif %} {% for project-site in item.options %}{% if project-site.active %}active{% break %}{% endif %}{% endfor %}">
                                 {% if item.hamburger_toggle %}
-                                <button class="ml-auto mt-1 d-none d-{{nav_expand_point}}-block" type="button" role="button" data-toggle="dropdown"
+                                <button class="ml-auto mt-1 d-none d-{{nav_expand_point}}-block" type="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" aria-label="Toggle {{item.title}} Dropdown">
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
