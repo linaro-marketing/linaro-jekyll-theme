@@ -1,5 +1,6 @@
 @font-face {
   font-family: "fontello";
+  font-display: swap;
   src: url("/assets/fonts/fontello/fontello.eot");
   src: url("/assets/fonts/fontello/fontello.eot") format("embedded-opentype"),
     url("/assets/fonts/fontello/fontello.woff2") format("woff2"),
@@ -12,6 +13,7 @@
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "fontello";
+  font-display: swap;
   font-style: normal;
   font-weight: normal;
   speak: none;
