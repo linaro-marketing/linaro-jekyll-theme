@@ -26,9 +26,9 @@
                         {{slide.title}}</h1>
                 {% endif %}
                 {% if slide.description %}
-                    <p class="lead {% if slide.desciption-class %} {{slide.description-class}}{% endif %}">
-                        {{slide.description}}
-                    </p>
+                    <div class="lead {% if slide.desciption-class %} {{slide.description-class}}{% endif %}">
+                        {{slide.description | markdownify}}
+                    </div>
                 {% endif %}
                 {% if slide.buttons %}
                     <p class="lead">
@@ -85,9 +85,9 @@
                 <h1 {% if page.jumbotron.title-class %}class="{{page.jumbotron.title-class}}"{% endif %}>{{page.jumbotron.title}}</h1>
             {% endif %}
             {% if page.jumbotron.description %}
-            <p class="lead">
-                {{page.jumbotron.description }}
-            </p>
+            <div class="lead">
+                {{page.jumbotron.description | markdownify}}
+            </div>
             {% endif %}
             {% if page.jumbotron.buttons %}
             <p class="lead">
