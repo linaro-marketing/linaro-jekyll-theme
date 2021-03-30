@@ -55,6 +55,7 @@
                     {% for item in site.data.universal_nav.items %}
                         {% if item.icon %}
                         <a target="_blank" class="nav-link" href="{{item.url}}">
+                            <span class="sr-only">{{item.icon}}</span>
                             <span class="{{item.icon}}"></span>
                         </a>
                         {% endif %}
