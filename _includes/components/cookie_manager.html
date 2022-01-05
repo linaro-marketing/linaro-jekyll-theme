@@ -1,17 +1,17 @@
 <div class="col col-12 cookie_manager">
     <div class="row justify-content-lg-center">
         <div class="col col-12 col-sm-9">
-            <h3>{{site[site.active_lang].necessaryCookies}}</h3>
+            <h3>{{site.data.translations.necessaryCookies}}</h3>
             <p class="lead">
-                {{site[site.active_lang].necessaryCookiesText}}
+                {{site.data.translations.necessaryCookiesText}}
             </p>
             <p>
-                {{site[site.active_lang].necessaryCookiesTextList}}
+                {{site.data.translations.necessaryCookiesTextList}}
             </p>
             <table class="table">
                 <thead>
-                    <th>{{site[site.active_lang].cookieName}}</th>
-                    <th>{{site[site.active_lang].usage}}</th>
+                    <th>{{site.data.translations.cookieName}}</th>
+                    <th>{{site.data.translations.usage}}</th>
                 </thead>
                 <tbody>
                     {% for cookie in site.google_analytics.cookies.necessary %}
@@ -35,18 +35,18 @@
     </div>
     <div class="row justify-content-lg-center">
         <div class="col col-12 col-sm-9" order-sm-1">
-            <h3>{{site[site.active_lang].analyticsCookies}}</h3>
+            <h3>{{site.data.translations.analyticsCookies}}</h3>
             <p class="lead" id="analytics_cookies_desc">
-                <span class="disabled">{{site[site.active_lang].cookiesDisabledText}}</span>
-                <span class="enabled">{{site[site.active_lang].cookiesEnabledText}}</span>
+                <span class="disabled">{{site.data.translations.cookiesDisabledText}}</span>
+                <span class="enabled">{{site.data.translations.cookiesEnabledText}}</span>
             </p>
             <p>
-                {{site[site.active_lang].analyticsCookiesTextList}}
+                {{site.data.translations.analyticsCookiesTextList}}
             </p>
             <table class="table">
                 <thead>
-                    <th>{{site[site.active_lang].cookieName}}</th>
-                    <th>{{site[site.active_lang].usage}}</th>
+                    <th>{{site.data.translations.cookieName}}</th>
+                    <th>{{site.data.translations.usage}}</th>
                 </thead>
                 <tbody>
                     {% for cookie in site.google_analytics.cookies.marketing %}

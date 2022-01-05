@@ -207,7 +207,7 @@ readme_index:
 picture:
   nomarkdown: false
   source: ""
-  output: ""
+  output: "../generated"
   relative_url: true
 # -------- japr --------
 asset_pipeline:
@@ -230,5 +230,5 @@ i18n_enabled: true
 languages: ["en", "ja"]
 default_lang: "en"
 exclude_from_localization:
-  ["javascript", "images", "css", "public", "assets", "assets/images"]
+  ["javascript", "images", "css", "public", "assets", "generated"]
 parallel_localization: false

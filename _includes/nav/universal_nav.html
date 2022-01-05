@@ -3,12 +3,12 @@
 <nav class="navbar navbar-expand-{{nav_expand_point}} navbar-dark" id="universal_nav">
     <div class="container">
         <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{site[site.active_lang].toggleNavigation}}">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{site.data.translations.toggleNavigation}}">
             <!-- <span class="navbar-toggler-icon"></span> -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="sr-only">{{site[site.active_lang].toggleNavigation}}</span>
+            <span class="sr-only">{{site.data.translations.toggleNavigation}}</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
@@ -21,7 +21,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
-                                    <span class="sr-only d-none">{{site[site.active_lang].toggleNavigation}}</span>
+                                    <span class="sr-only d-none">{{site.data.translations.toggleNavigation}}</span>
                                 </button>
                                 <a class="nav-link dropdown-toggle d-block d-{{nav_expand_point}}-none" target="_self" href="#" id="universalNavbarDropdown" aria-label="Toggle unviersal navigation" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">

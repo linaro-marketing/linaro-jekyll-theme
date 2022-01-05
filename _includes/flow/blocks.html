@@ -22,7 +22,7 @@
                                 {{block.modal_content | markdownify}}
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{site[site.active_lang].close}}</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{site.data.translations.close}}</button>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             {% if block.modal_content %}
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blockModal-{{forloop.index}}-{{block.title | slugify}}">
-                                    {{site[site.active_lang].moreInfo}}
+                                    {{site.data.translations.moreInfo}}
                                 </button>
                             {% else %}
                                 {% if block.buttons %}

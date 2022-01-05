@@ -2,9 +2,9 @@
 <div class="col col-12 ">
     <div id="post_search" data-search-label="{{data.search_label}}">
         <input class="form-control form-control-lg" id="search-input" type="text"
-            placeholder="{{site[site.active_lang].search.search}} {{site.categories[data.category].size}} {{site[site.active_lang].posts | downcase }}..." />
+            placeholder="{{site.data.translations.search.search}} {{site.categories[data.category].size}} {{site.data.translations.posts | downcase }}..." />
         <a class="close_search" href="#">
-            X <span class="sr-only">{{site[site.active_lang].search.clearSearch}}</span>
+            X <span class="sr-only">{{site.data.translations.search.clearSearch}}</span>
         </a>
         <ul class="list-unstyled p-3" id="results-container"></ul>
     </div>

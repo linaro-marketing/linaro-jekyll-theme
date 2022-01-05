@@ -16,13 +16,13 @@
     {% if page.description %}
         {% assign description = page.description %}
     {% else %}
-        {% capture description %}{{site[site.active_lang].info.description}}{% endcapture %}
+        {% capture description %}{{site.data.translations.info.description}}{% endcapture %}
     {% endif %}
 
     {% if page.title %}
         {% assign title = page.title %}
     {% else %}
-        {% capture title %}{{site[site.active_lang].info.title}}{% endcapture %}
+        {% capture title %}{{site.data.translations.info.title}}{% endcapture %}
     {% endif %}
 
     {% if page.image %}

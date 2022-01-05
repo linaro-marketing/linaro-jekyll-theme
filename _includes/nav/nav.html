@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="sr-only">{{site[site.active_lang].toggleNavigation}}</span>
+            <span class="sr-only">{{site.data.translations.toggleNavigation}}</span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="navbar-nav ml-auto">
@@ -129,8 +129,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <form class="form-inline flex-nowrap" action="/search/" method="GET" target="_self" id="search_form">
-                            <input class="form-control border-0 flex-grow-1" name="q" type="search" placeholder="{{site[site.active_lang].search.search}}..." aria-label="{{site[site.active_lang].search.search}}">
-                            <button class="btn btn-outline-primary border-0" type="submit">{{site[site.active_lang].search.search}}</button>
+                            <input class="form-control border-0 flex-grow-1" name="q" type="search" placeholder="{{site.data.translations.search.search}}..." aria-label="{{site.data.translations.search.search}}">
+                            <button class="btn btn-outline-primary border-0" type="submit">{{site.data.translations.search.search}}</button>
                             <input type="hidden" name="fields.label" value="{{ site.search_label }}">
                         </form>
                     </div>
