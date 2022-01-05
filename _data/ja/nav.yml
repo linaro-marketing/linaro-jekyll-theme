@@ -1,0 +1,39 @@
+universal_nav: true
+search:
+  enabled: true
+  label: Linaro
+expand_breakpoint: lg
+brand:
+  # custom_include: nav/brand.html
+  path: /assets/images/Linaro-Logo.svg
+  alt: Linaro logo
+pages:
+  - title: 特徴
+    options:
+      - text: ページヘッダー
+        options:
+          - text: ビデオヘッダー
+            url: /ja/features/video-header/
+          - text: スライダーヘッダー
+            url: /ja/features/slider-header/
+          - text: 背景画像ヘッダー
+            url: /ja/features/background-image-header/
+          - text: ヘッダ
+            url: /ja/features/header/
+          - text: パンくず
+            url: /ja/features/breadcrumb/
+          - text: ヘッダーなし
+            url: /ja/features/no-header/
+      - text: レイアウト
+        options:
+          - text: フロー
+            url: /ja/flow/
+          - text: 役職
+            url: /ja/post/
+          - url: /ja/documentation-page/
+            text: ドキュメントページ
+  - title: GitHubで表示
+    url: https://www.github.com/linaro-marketing/linaro-jekyll-theme
+    external: true
+  - url: /ja/blog/
+    title: ブログ
