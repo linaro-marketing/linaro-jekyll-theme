@@ -7,13 +7,23 @@
                         {% include components/github_edit.html pagePath=page.path pagePermalink=page.permalink %}
                     </div>
                     <div class="col col-12 text-white text-center">
-                        <span class="copyright">Copyright &copy; {{ 'now' | date: "%Y" }} {{site.data.footer.copyright_text}}</span>
+                        <span class="copyright">{{site[site.active_lang].copyright}} &copy; {{ 'now' | date: "%Y" }} {{site.data.footer.copyright_text}}</span>
                         {% for link in site.data.footer.company_links %}
                             <span class="coloured-bp">&bull;</span>
                             <a href="{{link.url}}">{{link.name}}</a>
                         {% endfor %}
                         {% include_cached social_media_icons.html %}
                     </div>
+                    {% if site.i18n_enabled %}
+                    <div class="col col-12 text-white text-center">
+                        {% for lang in site.languages %}
+                            <a {% if lang == site.active_lang %}style="font-weight: bold;"{% endif %} {% static_href %}href="{% if lang == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ lang }}{{page.url}}{% endif %}"{% endstatic_href %} >{{ lang }}</a>
+                            {% unless forloop.last %}
+                                <span class="coloured-bp">&bull;</span>
+                            {% endunless %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                     {% if site.data.footer.footer_brand %}
                     <div class="col col-12  text-white text-center m-t-10">
                         <a href="{{site.data.footer.footer_brand.url}}/">

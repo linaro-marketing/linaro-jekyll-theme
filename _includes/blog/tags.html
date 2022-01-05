@@ -19,7 +19,7 @@
         {% endfor %}
     {% endfor %}
     </div>
-    <a type="button" class="btn btn-secondary d-none" id="view_all_tags_btn">View all tags</a>
+    <a type="button" class="btn btn-secondary d-none" id="view_all_tags_btn">{{site[site.active_lang].viewAllTags}}</a>
 </div>
 <div class="col col-12 tagged_posts" id="tagged_posts">
     {% for tag in site.tags %}
@@ -49,7 +49,7 @@
                                     <a href="{{ post.url }}">
                                     <h5 class="mt-0 mb-1">{{post.title}}</h5>
                                     <div class="post_meta" >
-                                        Posted by <strong itemprop="name" rel="author">{{author_name}}</strong> on 
+                                        {{site[site.active_lang].postedBy}} <strong itemprop="name" rel="author">{{author_name}}</strong> on 
                                         <time datetime="{{post.date}}" >{{post.date |  date: "%A, %B %-d, %Y"}}</time>
                                     </div>
                                     {% if post.description %}

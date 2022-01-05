@@ -4,9 +4,9 @@
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center my-4 my-sm-4">
     {% if paginator.previous_page %}
-        <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
+        <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; {{site[site.active_lang].prev}}</a></li>
     {% else %}
-    <li class="page-item disabled"><a class="page-link" href="#">&laquo; Prev</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">&laquo; {{site[site.active_lang].prev}}</a></li>
     {% endif %}
     {% if paginator.page_trail %}
         {% for trail in paginator.page_trail %}
@@ -28,9 +28,9 @@
         {% endfor %}
     {% endif %}
     {% if paginator.next_page %}
-        <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next </a></li>
+        <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{site[site.active_lang].next}} </a></li>
     {% else %}
-        <li class="page-item disabled"><a class="page-link" href="#">Next &raquo;</a></li>
+        <li class="page-item disabled"><a class="page-link" href="#">{{site[site.active_lang].next}} &raquo;</a></li>
     {% endif %}
     </ul>
 </nav>

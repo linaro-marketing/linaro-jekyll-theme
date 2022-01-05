@@ -2,7 +2,7 @@
     Recent Posts Displayed here.
 {% endcomment %}
 <div class="col col-12 my-5 suggested_posts">
-    <h3>Recent Posts</h3>
+    <h3>{{site[site.active_lang].recentPosts}}</h3>
     <ul class="list-unstyled">
         {% for post in site.posts limit: 3 %}
             {% assign timeframe = 604800 %}
@@ -30,7 +30,7 @@
                         {% endif %}
                         </p>
                         {% if post_in_seconds > recent_posts %}
-                            <span class="new-post" title="Post added in the last week.">New</span>
+                            <span class="new-post" title="Post added in the last week.">{{site[site.active_lang].new}}</span>
                         {% endif %}
                     </a>
                 </div>
@@ -42,7 +42,7 @@
 Other Posts
 {% endcomment %}
 <div class="col col-12 my-5 suggested_posts">
-    <h3>Other Posts</h3>
+    <h3>{{site[site.active_lang].otherPosts}}</h3>
     <ul class="list-unstyled">
         {% assign posts = site.posts | sample:5 %}
         {% for post in posts %}

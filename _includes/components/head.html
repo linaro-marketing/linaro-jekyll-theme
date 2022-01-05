@@ -1,6 +1,7 @@
 <head>
     {% include components/http2.html %}
     <meta charset="UTF-8">
+    {% I18n_Headers %}
     <title>
         {% if page.meta_title %}
             {{page.meta_title}} | {{site.title}}
@@ -15,13 +16,13 @@
     {% if page.description %}
         {% assign description = page.description %}
     {% else %}
-        {% assign description = site.description %}
+        {% capture description %}{{site[site.active_lang].info.description}}{% endcapture %}
     {% endif %}
 
     {% if page.title %}
         {% assign title = page.title %}
     {% else %}
-        {% assign title = site.title %}
+        {% capture title %}{{site[site.active_lang].info.title}}{% endcapture %}
     {% endif %}
 
     {% if page.image %}
