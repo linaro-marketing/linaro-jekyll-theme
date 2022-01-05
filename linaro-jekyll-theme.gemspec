@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "linaro-jekyll-theme"
-  spec.version       = "5.0.0"
+  spec.version       = "5.0.1"
   spec.authors       = ["Kyle Kirkby"]
   spec.email         = ["kyle.kirkby@linaro.org"]
 
@@ -26,8 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jekyll-include-cache', '0.2.0'
   # Responsive images
   spec.add_runtime_dependency "jekyll_picture_tag", '1.9.0'
-  # Generate a sitemap at sitemap.xml
-  spec.add_runtime_dependency "jekyll-sitemap", "1.4.0"
   # Jekyll Tidy - HTML minfier
   spec.add_runtime_dependency 'jekyll-tidy', '0.2.2'
   # Jekyll-toc for generating table of contents for documentation pages.
