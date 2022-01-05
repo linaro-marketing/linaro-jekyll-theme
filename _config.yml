@@ -23,12 +23,14 @@ exclude:
   - _static-site
   - .sass-cache
   - _site
+  - scripts
   - linaro-jekyll-theme*.gem
   - linaro-jekyll-theme*.gemspec
 sass:
   style: compressed
   load_paths:
     - assets/css
+  sourcemap: "never"
 plugins:
   - japr
   - jekyll_picture_tag
@@ -45,11 +47,23 @@ defaults:
       path: ""
     values:
       layout: flow
+      lang: en
   - scope:
       type: posts
       path: "_posts"
     values:
       layout: post
+      lang: en
+      is_post: true
+      comments: true
+      tags_enabled: true
+      strap_image: /assets/images/breadcrumb-image.jpg
+  - scope:
+      type: posts
+      path: "_posts/ja"
+    values:
+      layout: post
+      lang: ja
       is_post: true
       comments: true
       tags_enabled: true
@@ -60,6 +74,9 @@ defaults:
     values:
       layout: author
 include: ["_pages"]
+livereload_ignore:
+  - .asset_pipeline/assets/js/*.js
+  - .asset_pipeline/assets/js/*.js.gz
 # ----------- THEME / WEBSITE CONFIG ---------------------
 # Blog images/thumbs dir
 blog_images_dir: assets/images/content/
@@ -190,7 +207,7 @@ readme_index:
 picture:
   nomarkdown: false
   source: ""
-  output: "assets/images"
+  output: ""
   relative_url: true
 # -------- japr --------
 asset_pipeline:
@@ -208,3 +225,10 @@ toc:
   sublist_class: "list-group"
   item_class: toc-entry
   item_prefix: toc-
+# Jekyll-polyglot
+i18n_enabled: true
+languages: ["en", "ja"]
+default_lang: "en"
+exclude_from_localization:
+  ["javascript", "images", "css", "public", "assets", "assets/images"]
+parallel_localization: false
