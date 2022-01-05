@@ -1,9 +1,10 @@
 ---
-title: Get your flow on!
-layout: flow
+title: あなたの流れを手に入れよう!
 permalink: /flow/
+layout: flow
+lang: ja
 description: >
-  This page showcases the power of the flow.html Jekyll include provided in this theme.
+  このページでは、このテーマに提供されているジキル.html流れの力を紹介します。
 keywords:
   - flow
   - jekyll
@@ -12,13 +13,13 @@ keywords:
   - bootstrap 3
 jumbotron:
   inner_class: dotted
-  title: Get your flow on!
+  title: あなたの流れを手に入れよう!
   slider: []
   description: >
-    The flow layout enables you to create custom pages using only Jekyll front matter.
+    フローレイアウトでは、Jekyll フロントマターのみを使用してカスタムページを作成できます。
   image: /assets/images/breadcrumb-image.jpg
   buttons:
-    - title: View on Github
+    - title: ギットハブで見る
       icon: icon-github
       class: test
       url: https://github.com
@@ -30,19 +31,19 @@ flow:
         style: #
         title_content:
           size: h2
-          text: What is the flow layout?
+          text: フローレイアウトとは何ですか？
           style: display-4
       - format: text
         style: #
         text_content:
           text: |
-            The flow layout enables content editors to create custom pages _without_ the need to add a new layout.
+            フローレイアウトを使用すると、コンテンツ編集者は新しいレイアウトを追加する必要なしにカスタムページを作成できます。
 
-            The layout let's content editors a combination of row and section types to create a custom static page.
+            レイアウトでは、コンテンツエディタで行タイプとセクションタイプを組み合わせて、カスタムの静的ページを作成します。
       - format: buttons
         style: #
         buttons_content:
-          - title: More Details
+          - title: 詳細
             url: /about/
             icon: fa fa-arrow-right
             style: btn-primary
@@ -58,15 +59,15 @@ flow:
       - format: title
         title_content:
           size: h2
-          text: Container row with background image
+          text: 背景画像を含むコンテナ行
       - format: text
         style: text-center text-white
         text_content:
-          text: A container row featuring a background image
+          text: 背景画像を含むコンテナ行
       - format: buttons
         style: text-center
         buttons_content:
-          - title: More Details
+          - title: 詳細
             url: /about/
             icon: fa fa-arrow-right
             style: btn-primary
@@ -82,7 +83,7 @@ flow:
         style: #
         url: https://www.youtube.com/watch?v=mWpK-cNQmL8
         #   poster_image: /assets/images/breadcrumb-image.jpg
-        title: Interview with Shuah Khan on Kernel Self Test
+        title: カーネル自己テストに関するシュア・カーンのインタビュー
   - row: container_row
     style: block_row
     sections:
@@ -90,28 +91,28 @@ flow:
         style: text-center
         title_content:
           size: h2
-          text: Collapse Section
+          text: セクションの折りたたみ
       - format: collapse
         style: #
         panels:
-          - title: Test Panel Title
+          - title: テストパネルのタイトル
             content: |
-              ## Test Panel Content
+              ## テストパネルのコンテンツ
 
-              Some other text
+              その他のテキスト
 
-              - Bullet 1
-              - Bullet 2
-              - Bullet 3
-          - title: Test Panel Title 2
+              - 弾丸 1
+              - 弾丸 2
+              - 弾丸 3
+          - title: テストパネルのタイトル 2
             content: |
-              ## Test Panel Content 2
+              ## テストパネルコンテンツ 2
 
-              Some other text
+              その他のテキスト
 
-              - Bullet 1
-              - Bullet 2
-              - Bullet 3
+              - 弾丸 1
+              - 弾丸 2
+              - 弾丸 3
       - format: title
         style: text-center
         title_content:
@@ -150,21 +151,21 @@ flow:
         style: text-center
         title_content:
           size: h2
-          text: Block Row
+          text: ブロック行
       - format: block
         style: text-center
         block_section_content:
           item_width: "4"
           blocks:
-            - title: Block 1
+            - title: ブロック 1
               url: /about/
               modal_content: |
-                This is some modal _content_.
+                これはいくつかのモーダル _content_です。
               image: /assets/images/breadcrumb-image.jpg
               background_image: true
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
@@ -172,21 +173,21 @@ flow:
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-secondary
-            - title: Block 2
+            - title: ブロック 2
               url: /about/
               image: /assets/images/Linaro-logo-white.png
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
-            - title: Block 3
+            - title: ブロック 3
               url: /about/
               image: /assets/images/Linaro-logo-white.png
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
@@ -199,46 +200,46 @@ flow:
         block_section_content:
           item_width: "3"
           blocks:
-            - title: Block 1
+            - title: ブロック 1
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
               background_image: true
               style: d-flex
               content_style: d-flex flex-column align-items-center justify-content-center
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   style: btn-primary
                   icon: fa fa-arrow-right
-            - title: Block 2
+            - title: ブロック 2
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
               background_image: true
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
-            - title: Block 3
+            - title: ブロック 3
               url: /about/
               style: block_three_style
               image: /assets/images/breadcrumb-image.jpg
               background_image: true
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
-            - title: Block 4
+            - title: ブロック 4
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
               background_image: true
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
@@ -252,37 +253,33 @@ flow:
       - format: tabs
         style: #
         tabs:
-          - title: Test
+          - title: 試験
             content: |
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              ロレム・イプサム・ドロールはアメットに座り、エリトを奉献し、アイウスモド・テンプター・インシディドゥント・ウ・イコール・エ・ドロレ・マグナ・アリカを歌う。Ut enim ad minim veniam, クイス・ノススルード・エクスメルシエーション・ウラムコ・laboris nisi ut aliquip ex ea commodo consequat.デュイス・オート・アイラー・ドール・イン・レプレヘンデリットのボリュート・ヴェリット・エッセ・シルム・ドロワールで、私はヌラ・パリアトゥールを走らせた。除いて、オカキャット・クピダスト・ノン・プロイデント、カルパ・クイ・オフィシア・デセルント・モリト・アニム・イッド・エスト・ルーマムのサント。 >ロレン・イプサム・ドロールはアメットに座り、エリトを奉献し、セッド・ド・エイスモド・テンペル・インシディドゥット・ウット・レイバー・エ・ドロレ・マグナ・アリカをセドした。Ut enim ad minim veniam, クイス・>ノスラッド・エクスメルコ・ウレンコ・laboris nisi ut aliquip ex ea commodo consequat.デュワ・オート・アイラー・ドール・イン・レプレヘンデリットのデュワ・アイラー・ドロールは、私がヌラ・ファリアトゥールを逃げた>、ヴォルプルテート・ヴェリット・エッセ・シルム・ドロレで逃げました。除いて、オカキャット・クピダスト・ノン・プロイデント、カルパ・クイ・オフィシア・デセルント・モリト・アニム・イッド・エスト・ルーマムのサント。
 
-              > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis > nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore > eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-              - Test
-              - Test
-              - Test
+              - 試験
+              - 試験
+              - 試験
 
               This is some more [content](/).
-          - title: Test 2
+          - title: 試験 2
             content: |
               This is some test tab content. 2
 
-              - Test
+              - 試験
 
-              - Test
+              - 試験
 
-              - Test
+              - 試験
 
               This is some more [content](/).
-          - title: Test 3
+          - title: 試験 3
             content: |
               This is some test tab content. 3
 
-              - Test
-              - Test
-              - Test
+              - 試験
+              - 試験
+              - 試験
 
               This is some more [content](/). 3
   - row: container_row
@@ -292,7 +289,7 @@ flow:
       - format: title
         title_content:
           size: h2
-          text: Custom Include Section
+          text: カスタムインクルードセクション
       - format: custom_include
         source: examples/custom_include.html
   - row: full_width_row
@@ -301,46 +298,46 @@ flow:
       - format: title
         style: text-center
         title_content:
-          text: Full Width Block Row
+          text: 全幅ブロック行
           size: h2
       - format: block
         style: text-center
         item_width: 3
         block_section_content:
           blocks:
-            - title: Members Section Example
+            - title: メンバー セクションの例
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
-            - title: Members Section Example
+            - title: メンバー セクションの例
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
-            - title: Members Section Example
+            - title: メンバー セクションの例
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
-            - title: Members Section Example
+            - title: メンバー セクションの例
               url: /about/
               image: /assets/images/breadcrumb-image.jpg
-              description: See our photos from event.
+              description: イベントの写真をご覧ください。
               buttons:
-                - title: More Details
+                - title: 詳細
                   url: /flow/
                   icon: fa fa-arrow-right
                   style: btn-primary
@@ -363,15 +360,15 @@ flow:
           youtube:
             url: https://www.youtube.com/watch?v=QH2-TGUlwu4
             poster_image: /assets/images/breadcrumb-image.jpg
-          title: Feature Block
+          title: 機能ブロック
           custom_include: test/feature_block.html
           text: >
-            A feature block with a youtube video.
+            ユーチューブ動画を含む機能ブロック。
           buttons:
-            - title: Button 1
+            - title: ボタン 1
               url: /about/
               style: btn-primary
-            - title: Button 2
+            - title: ボタン 2
               url: /about/
               style: btn-primary
       - format: feature_block
@@ -380,15 +377,15 @@ flow:
           position: "right"
           type: "image"
           image_content_path: /assets/images/breadcrumb-image.jpg
-          title: Feature Block 2
+          title: 機能ブロック 2
           text: >
-            A feature block with an image.
+            イメージを含むフィーチャー ブロック。
           custom_include: test/feature_block.html
           buttons:
-            - title: Button 1
+            - title: ボタン 1
               url: /about/
               style: btn-primary
-            - title: Button 2
+            - title: ボタン 2
               url: /about/
               style: btn-primary
   - row: container_row
@@ -440,14 +437,14 @@ flow:
               - image: /assets/images/breadcrumb-image.jpg
                 alt: Background Image
                 title: Background Image 1
-          title: Feature Block
+          title: 機能ブロック
           text: >
-            A feature block with an owl carousel slider.
+            フクロウのカルーセルスライダーを備えた機能ブロック。
           buttons:
-            - title: Button 1
+            - title: ボタン 1
               url: /about/
               style: btn-primary
-            - title: Button 2
+            - title: ボタン 2
               url: /about/
               style: btn-primary
       - format: feature_block
@@ -456,14 +453,14 @@ flow:
           position: "right"
           type: "image"
           image_content_path: /assets/images/breadcrumb-image.jpg
-          title: Feature Block
+          title: 機能ブロック
           text: >
-            A feature block with an image.
+            イメージを含むフィーチャー ブロック。
           buttons:
-            - title: Button 1
+            - title: ボタン 1
               url: /about/
               style: btn-primary
-            - title: Button 2
+            - title: ボタン 2
               url: /about/
               style: btn-primary
       - format: feature_block
@@ -474,14 +471,14 @@ flow:
           youtube:
             url: https://www.youtube.com/watch?v=QH2-TGUlwu4
             poster_image: /assets/images/breadcrumb-image.jpg
-          title: Feature Block (with youtube video)
+          title: 機能ブロック(ユーチューブ動画付き)
           text: >
-            This is a feature block using a youtube video for the featured content.
+            これは、特集コンテンツの YouTube 動画を使用する機能ブロックです。
           buttons:
-            - title: Button 1
+            - title: ボタン 1
               url: /about/
               style: btn-primary
-            - title: Button 2
+            - title: ボタン 2
               url: /about/
               style: btn-primary
   - row: container_row
@@ -489,7 +486,7 @@ flow:
     sections:
       - format: title
         title_content:
-          text: Slider Row Example
+          text: スライダー行の例
           size: h2
       - format: slider
         style: customCSS
@@ -535,12 +532,12 @@ flow:
     sections:
       - format: title
         title_content:
-          text: Slider Row Example (Full Width)
+          text: スライダー行の例 (全幅)
           size: h2
       - format: text
         style: text-center
         text_content:
-          text: Some block of text to describe something about such and such...
+          text: そのようなことについて何かを記述するテキストのいくつかのブロック.
       - format: slider
         style: customCSS
         slider_content:
