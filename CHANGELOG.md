@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Changelog](http://keepachangelog.com/).
 
 
+
 ## Unreleased
 ---
 
@@ -14,6 +15,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Fixes
 
 ### Breaks
+
+
+## 5.1.0 - (2022-01-07)
+---
+
+### New
+* Javascript to automtically switch users to the browser language if the user has not already set a preference
 
 
 ## 5.0.0 - (2022-01-05)
