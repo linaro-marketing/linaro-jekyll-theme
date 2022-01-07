@@ -15,9 +15,9 @@
                         {% include_cached social_media_icons.html %}
                     </div>
                     {% if site.i18n_enabled %}
-                    <div class="col col-12 text-white text-center">
+                    <div class="col col-12 text-white text-center" id="language_switcher">
                         {% for lang in site.languages %}
-                            <a {% if lang == site.active_lang %}style="font-weight: bold;"{% endif %} {% static_href %}href="{% if lang == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ lang }}{{page.url}}{% endif %}"{% endstatic_href %} >{{ lang }}</a>
+                            <a data-lang="{{lang}}" {% if lang == site.active_lang %}style="font-weight: bold;"{% endif %} href="#" class="lang_anchor">{{ lang }}</a>
                             {% unless forloop.last %}
                                 <span class="coloured-bp">&bull;</span>
                             {% endunless %}
