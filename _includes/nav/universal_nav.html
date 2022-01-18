@@ -3,12 +3,12 @@
 <nav class="navbar navbar-expand-{{nav_expand_point}} navbar-dark" id="universal_nav">
     <div class="container">
         <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{site.data.translations.toggleNavigation}}">
             <!-- <span class="navbar-toggler-icon"></span> -->
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only">{{site.data.translations.toggleNavigation}}</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
@@ -16,12 +16,12 @@
                     {% if item.options %}
                         <li class="nav-item dropdown {% if item.hamburger_toggle %}dropdown_hamburger{% endif %} {% for project-site in item.options %}{% if project-site.active %}active{% break %}{% endif %}{% endfor %}">
                                 {% if item.hamburger_toggle %}
-                                <button class="ml-auto mt-1 d-none d-{{nav_expand_point}}-block" type="button" role="button" data-toggle="dropdown"
+                                <button class="ml-auto mt-1 d-none d-{{nav_expand_point}}-block" type="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" aria-label="Toggle {{item.title}} Dropdown">
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
-                                    <span class="sr-only d-none">Toggle navigation</span>
+                                    <span class="sr-only d-none">{{site.data.translations.toggleNavigation}}</span>
                                 </button>
                                 <a class="nav-link dropdown-toggle d-block d-{{nav_expand_point}}-none" target="_self" href="#" id="universalNavbarDropdown" aria-label="Toggle unviersal navigation" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -55,6 +55,7 @@
                     {% for item in site.data.universal_nav.items %}
                         {% if item.icon %}
                         <a target="_blank" class="nav-link" href="{{item.url}}">
+                            <span class="sr-only">{{item.icon}}</span>
                             <span class="{{item.icon}}"></span>
                         </a>
                         {% endif %}

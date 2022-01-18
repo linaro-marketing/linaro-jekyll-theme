@@ -49,7 +49,7 @@ css_package: blog
                 <div class="col col-12 col-lg-10 py-4  blog-content">
                     {% assign content_length = author.content | size %}
                     {% if content_length > 1 %}
-                        <h3>About</h3>
+                        <h3>{{site.data.translations.about}}</h3>
                         {{author.content | markdownify }}
                         <hr/>
                     {% endif %}

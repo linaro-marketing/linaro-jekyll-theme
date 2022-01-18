@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "linaro-jekyll-theme"
-  spec.version       = "4.3.0"
+  spec.version       = "5.1.0"
   spec.authors       = ["Kyle Kirkby"]
   spec.email         = ["kyle.kirkby@linaro.org"]
 
@@ -26,20 +26,20 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jekyll-include-cache', '0.2.0'
   # Responsive images
   spec.add_runtime_dependency "jekyll_picture_tag", '1.9.0'
-  # Generate a sitemap at sitemap.xml
-  spec.add_runtime_dependency "jekyll-sitemap", "1.4.0"
   # Jekyll Tidy - HTML minfier
   spec.add_runtime_dependency 'jekyll-tidy', '0.2.2'
   # Jekyll-toc for generating table of contents for documentation pages.
   spec.add_runtime_dependency 'jekyll-toc', '0.15.0'
   # Add's an RSS feed for your posts
   spec.add_runtime_dependency "jekyll-feed", "0.13.0"
+  # Add's multi-lingual functionality
+  spec.add_runtime_dependency "jekyll-polyglot", "1.5.0"
   # JS Bundler / Compression
   spec.add_runtime_dependency 'japr', '0.4.2'
   spec.add_runtime_dependency 'closure-compiler', '~> 1.1', '>= 1.1.14'
   #spec.add_runtime_dependency "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   # Development Dependencies
-  spec.add_development_dependency "bundler", "1.17.2"
+  spec.add_development_dependency "bundler", "1.17.3"
   # spec.add_development_dependency "bundler", "1.17.3"
   # spec.add_development_dependency "rake", "13.0.1"
 end

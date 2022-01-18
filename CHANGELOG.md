@@ -17,40 +17,61 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a Ch
 ### Breaks
 
 
-## 4.3.0 - (2020-12-15)
+## 5.1.0 - (2022-01-07)
 ---
 
 ### New
-* Added OFI.js polyfill for object-fit css property
-* Added new universal nav design
-  * Social media icons can be included in the nav now.
-  * 
-### Fixes
-* Fixed object-fit issues in IE
+* Javascript to automtically switch users to the browser language if the user has not already set a preference
 
+
+## 5.0.0 - (2022-01-05)
+
+---
+
+### New
+
+- i18n multi-lingual support using the jekyll-polyglot plugin
+
+
+## 4.3.0 - (2020-12-15)
+
+---
+
+### New
+
+- Added OFI.js polyfill for object-fit css property
+- Added new universal nav design
+  - Social media icons can be included in the nav now.
+  -
+
+### Fixes
+
+- Fixed object-fit issues in IE
 
 ## 4.2.0 - (2020-11-23)
+
 ---
 
 ### New
-* Added a documentation layout. This will predominantly be used by the 96boards documentation
-* Added the ability to simply provide a path to the navbar brand image and also specifiy an alt tag
-* Added support for the use of a sticky tab bar. Provides per page sub navigation as a tabbed navbar row.
-* Added breadcrumb background image support by setting `breadcrumb_banner` in your `_config.yml`.
-* Added inner-image support to jumbotron header
-* Added animated dropdown menu feature. The first dropdowns will show on hover.
 
+- Added a documentation layout. This will predominantly be used by the 96boards documentation
+- Added the ability to simply provide a path to the navbar brand image and also specifiy an alt tag
+- Added support for the use of a sticky tab bar. Provides per page sub navigation as a tabbed navbar row.
+- Added breadcrumb background image support by setting `breadcrumb_banner` in your `_config.yml`.
+- Added inner-image support to jumbotron header
+- Added animated dropdown menu feature. The first dropdowns will show on hover.
 
 ### Fixes
-* Added missing image alt text and aria labels
 
+- Added missing image alt text and aria labels
 
 ## 4.1.6 - (2020-11-16)
+
 ---
 
 ### Changes
-* Adds custom_include support for feature blocks.
 
+- Adds custom_include support for feature blocks.
 
 ---
 

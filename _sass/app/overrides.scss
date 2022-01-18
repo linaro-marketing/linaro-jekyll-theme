@@ -28,6 +28,7 @@ $jumbotron_height: 350px;
 @font-face {
   font-display: fallback;
   font-family: "Lato";
+  font-display: swap;
   src: url("/assets/fonts/lato/Lato-regular.eot"); /* IE9 Compat Modes */
   src: url("/assets/fonts/lato/Lato-regular.eot?#iefix")
       format("embedded-opentype"),

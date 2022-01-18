@@ -1,9 +1,12 @@
 <head>
     {% include components/http2.html %}
     <meta charset="UTF-8">
+    {% I18n_Headers %}
     <title>
-        {% if page.title %}
-            {{page.title}} - {{site.title}}
+        {% if page.meta_title %}
+            {{page.meta_title}} | {{site.title}}
+        {% elsif page.title %}
+            {{page.title}} | {{site.title}}
         {% else %}
             {{site.title}}
         {% endif %}
@@ -13,13 +16,13 @@
     {% if page.description %}
         {% assign description = page.description %}
     {% else %}
-        {% assign description = site.description %}
+        {% capture description %}{{site.data.translations.info.description}}{% endcapture %}
     {% endif %}
 
     {% if page.title %}
         {% assign title = page.title %}
     {% else %}
-        {% assign title = site.title %}
+        {% capture title %}{{site.data.translations.info.title}}{% endcapture %}
     {% endif %}
 
     {% if page.image %}
